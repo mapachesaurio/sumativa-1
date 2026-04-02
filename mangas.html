@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaVerse - Catálogo de Mangas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #e11d48;
+      --dark: #0f172a;
+      --gray: #1e2937;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0f1c;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(to right, #1e2937, #0f172a);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #334155;
+    }
+
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #e11d48;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #f8fafc;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #e11d48;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-top: 80px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Page Title */
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #e11d48, #f43f5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      color: #94a3b8;
+      font-size: 1.2rem;
+    }
+
+    /* Search Bar */
+    .search-section {
+      margin-bottom: 2rem;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .search-box input {
+      width: 100%;
+      max-width: 500px;
+      padding: 1rem 1.5rem;
+      background: #1e2937;
+      border: 1px solid #334155;
+      border-radius: 50px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: #e11d48;
+      box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.3);
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.5rem;
+      background: #1e2937;
+      border: 1px solid #334155;
+      border-radius: 50px;
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #e11d48;
+      border-color: #e11d48;
+      color: white;
+    }
+
+    /* Genre Tags */
+    .genres {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .genre-tag {
+      padding: 0.4rem 1.2rem;
+      background: #1e2937;
+      border: 1px solid #334155;
+      border-radius: 50px;
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.85rem;
+    }
+
+    .genre-tag:hover,
+    .genre-tag.active {
+      background: #e11d48;
+      border-color: #e11d48;
+      color: white;
+    }
+
+    /* Results Count */
+    .results-count {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #94a3b8;
+    }
+
+    /* Manga Grid */
+    .manga-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .manga-card {
+      background: #1e2937;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .manga-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .manga-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .manga-info {
+      padding: 1rem;
+    }
+
+    .manga-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #f8fafc;
+    }
+
+    .manga-info .genre {
+      font-size: 0.8rem;
+      color: #e11d48;
+      margin-bottom: 0.5rem;
+    }
+
+    .manga-info .rating {
+      font-size: 0.85rem;
+      color: #fbbf24;
+    }
+
+    .manga-info .rating i {
+      margin-right: 0.2rem;
+    }
+
+    .manga-info .chapters {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .page-btn {
+      padding: 0.6rem 1rem;
+      background: #1e2937;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .page-btn:hover,
+    .page-btn.active {
+      background: #e11d48;
+      border-color: #e11d48;
+      color: white;
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 4rem;
+      color: #94a3b8;
+    }
+
+    .no-results i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    /* Footer */
+    .footer {
+      background: #020617;
+      padding: 60px 0 30px;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 1rem;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .manga-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+      }
+      .manga-card img {
+        height: 220px;
+      }
+      .filter-btn, .genre-tag {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Manga<span>Verse</span></a>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="mangas.html" class="active">Mangas</a>
+        <a href="#">Géneros</a>
+        <a href="#">Popular</a>
+        <a href="#">Comunidad</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Catálogo de Mangas</h1>
+      <p>Descubre miles de mangas y manhwas en español</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-section">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar manga por título...">
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="popular">Más Populares</button>
+        <button class="filter-btn" data-filter="recent">Recientes</button>
+        <button class="filter-btn" data-filter="top-rated">Mejor Valorados</button>
+      </div>
+
+      <!-- Genre Tags -->
+      <div class="genres" id="genreFilters">
+        <span class="genre-tag active" data-genre="all">Todos</span>
+        <span class="genre-tag" data-genre="acción">Acción</span>
+        <span class="genre-tag" data-genre="aventura">Aventura</span>
+        <span class="genre-tag" data-genre="comedia">Comedia</span>
+        <span class="genre-tag" data-genre="drama">Drama</span>
+        <span class="genre-tag" data-genre="fantasía">Fantasía</span>
+        <span class="genre-tag" data-genre="romance">Romance</span>
+        <span class="genre-tag" data-genre="sobrenatural">Sobrenatural</span>
+        <span class="genre-tag" data-genre="shonen">Shonen</span>
+        <span class="genre-tag" data-genre="seinen">Seinen</span>
+      </div>
+    </div>
+
+    <div class="results-count" id="resultsCount"></div>
+
+    <!-- Manga Grid -->
+    <div id="mangaGrid" class="manga-grid"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h2>MangaVerse</h2>
+      <p>Tu plataforma favorita para leer mangas online gratis.</p>
+      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Datos de mangas
+    const mangasData = [
+      { id: 1, title: "Solo Leveling", genre: "acción", rating: 4.8, chapters: 179, views: 15000, type: "popular", image: "images/solo leveling.jpg" },
+      { id: 2, title: "Jujutsu Kaisen", genre: "acción", rating: 4.7, chapters: 245, views: 12000, type: "popular", image: "images/jujutsu.jpg" },
+      { id: 3, title: "One Piece", genre: "aventura", rating: 4.9, chapters: 1090, views: 25000, type: "popular", image: "images/one piece.jpg" },
+      { id: 4, title: "Chainsaw Man", genre: "acción", rating: 4.6, chapters: 167, views: 9800, type: "popular", image: "images/csm.jpg" },
+      { id: 5, title: "Demon Slayer", genre: "acción", rating: 4.7, chapters: 205, views: 11000, type: "top-rated", image: "images/demon slayer.jpg" },
+      { id: 6, title: "My Hero Academia", genre: "shonen", rating: 4.5, chapters: 390, views: 10500, type: "popular", image: "images/my hero academia.jpg" },
+      { id: 7, title: "Attack on Titan", genre: "drama", rating: 4.9, chapters: 139, views: 20000, type: "top-rated", image: "images/snk.jpg" },
+      { id: 8, title: "Naruto", genre: "aventura", rating: 4.8, chapters: 700, views: 18000, type: "popular", image: "images/naruto.jpg" },
+      { id: 9, title: "Tokyo Revengers", genre: "drama", rating: 4.4, chapters: 278, views: 8500, type: "recent", image: "images/tokyo revengers.jpg" },
+      { id: 10, title: "Spy x Family", genre: "comedia", rating: 4.7, chapters: 89, views: 9200, type: "recent", image: "images/spy x famili.jpg" },
+      { id: 11, title: "One Punch Man", genre: "comedia", rating: 4.6, chapters: 190, views: 9500, type: "popular", image: "images/opm.jpg" },
+      { id: 12, title: "Hunter x Hunter", genre: "aventura", rating: 4.8, chapters: 400, views: 10200, type: "top-rated", image: "images/hxh.jpg" },
+      { id: 13, title: "Blue Lock", genre: "deportes", rating: 4.5, chapters: 245, views: 7800, type: "recent", image: "images/blue lock.jpg" },
+      { id: 14, title: "Vinland Saga", genre: "seinen", rating: 4.8, chapters: 205, views: 8200, type: "top-rated", image: "images/vinland saga.jpg" },
+      { id: 15, title: "Berserk", genre: "seinen", rating: 4.9, chapters: 364, views: 13000, type: "top-rated", image: "images/berserk.jpg" },
+      { id: 16, title: "Frieren", genre: "fantasía", rating: 4.7, chapters: 118, views: 7500, type: "recent", image: "images/frieren.jpg" },
+      { id: 17, title: "Oshi no Ko", genre: "drama", rating: 4.6, chapters: 150, views: 8000, type: "recent", image: "images/oshi no ko.jpg" },
+      { id: 18, title: "Kaiju No. 8", genre: "acción", rating: 4.5, chapters: 95, views: 7200, type: "recent", image: "images/kaiju n.8.jpg" },
+      { id: 19, title: "Dandadan", genre: "comedia", rating: 4.6, chapters: 124, views: 7000, type: "recent", image: "images/dandadan.jpg" },
+      { id: 20, title: "Tower of God", genre: "fantasía", rating: 4.5, chapters: 590, views: 8800, type: "popular", image: "images/tower of god.jpg" }
+    ];
+
+    let currentPage = 1;
+    let currentFilter = "all";
+    let currentGenre = "all";
+    let currentSearch = "";
+    const itemsPerPage = 12;
+
+    // Elementos del DOM
+    const mangaGrid = document.getElementById("mangaGrid");
+    const pagination = document.getElementById("pagination");
+    const resultsCount = document.getElementById("resultsCount");
+    const searchInput = document.getElementById("searchInput");
+
+    // Filtrar mangas
+    function filterMangas() {
+      let filtered = [...mangasData];
+
+      // Filtrar por búsqueda
+      if (currentSearch) {
+        filtered = filtered.filter(manga => 
+          manga.title.toLowerCase().includes(currentSearch.toLowerCase())
+        );
+      }
+
+      // Filtrar por género
+      if (currentGenre !== "all") {
+        filtered = filtered.filter(manga => manga.genre === currentGenre);
+      }
+
+      // Filtrar por tipo
+      if (currentFilter === "popular") {
+        filtered = filtered.sort((a, b) => b.views - a.views);
+      } else if (currentFilter === "recent") {
+        filtered = filtered.filter(manga => manga.type === "recent");
+      } else if (currentFilter === "top-rated") {
+        filtered = filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      return filtered;
+    }
+
+    // Renderizar mangas
+    function renderMangas() {
+      const filtered = filterMangas();
+      const totalItems = filtered.length;
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      const start = (currentPage - 1) * itemsPerPage;
+      const paginatedItems = filtered.slice(start, start + itemsPerPage);
+
+      // Actualizar contador de resultados
+      resultsCount.innerHTML = `Mostrando ${paginatedItems.length} de ${totalItems} mangas`;
+
+      // Mostrar mensaje si no hay resultados
+      if (paginatedItems.length === 0) {
+        mangaGrid.innerHTML = `
+          <div class="no-results">
+            <i class="fas fa-book-open"></i>
+            <h3>No se encontraron mangas</h3>
+            <p>Intenta con otros filtros o palabras clave</p>
+          </div>
+        `;
+        pagination.innerHTML = "";
+        return;
+      }
+
+      // Renderizar grid
+      mangaGrid.innerHTML = paginatedItems.map(manga => `
+        <div class="manga-card" onclick="alert('Abriendo ${manga.title}...')">
+          <img src="${manga.image}" alt="${manga.title}">
+          <div class="manga-info">
+            <h3>${manga.title}</h3>
+            <div class="genre">${manga.genre.charAt(0).toUpperCase() + manga.genre.slice(1)}</div>
+            <div class="rating">
+              ${renderStars(manga.rating)} ${manga.rating}
+            </div>
+            <div class="chapters">
+              <i class="fas fa-book"></i> ${manga.chapters} capítulos
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      // Renderizar paginación
+      renderPagination(totalPages);
+    }
+
+    // Renderizar estrellas de rating
+    function renderStars(rating) {
+      const fullStars = Math.floor(rating);
+      const halfStar = rating % 1 >= 0.5;
+      let stars = "";
+      for (let i = 0; i < fullStars; i++) {
+        stars += '<i class="fas fa-star"></i>';
+      }
+      if (halfStar) {
+        stars += '<i class="fas fa-star-half-alt"></i>';
+      }
+      const emptyStars = 5 - Math.ceil(rating);
+      for (let i = 0; i < emptyStars; i++) {
+        stars += '<i class="far fa-star"></i>';
+      }
+      return stars;
+    }
+
+    // Renderizar paginación
+    function renderPagination(totalPages) {
+      if (totalPages <= 1) {
+        pagination.innerHTML = "";
+        return;
+      }
+
+      let pages = [];
+      if (totalPages <= 7) {
+        for (let i = 1; i <= totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        if (currentPage <= 3) {
+          pages = [1, 2, 3, 4, "...", totalPages];
+        } else if (currentPage >= totalPages - 2) {
+          pages = [1, "...", totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+        } else {
+          pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages];
+        }
+      }
+
+      pagination.innerHTML = pages.map(page => {
+        if (page === "...") {
+          return `<span class="page-btn" style="cursor: default;">...</span>`;
+        }
+        return `<button class="page-btn ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`;
+      }).join("");
+
+      // Agregar eventos a los botones de página
+      document.querySelectorAll(".page-btn[data-page]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentPage = parseInt(btn.dataset.page);
+          renderMangas();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    }
+
+    // Event Listeners
+    searchInput.addEventListener("input", (e) => {
+      currentSearch = e.target.value;
+      currentPage = 1;
+      renderMangas();
+    });
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        currentPage = 1;
+        renderMangas();
+      });
+    });
+
+    document.querySelectorAll(".genre-tag").forEach(tag => {
+      tag.addEventListener("click", () => {
+        document.querySelectorAll(".genre-tag").forEach(t => t.classList.remove("active"));
+        tag.classList.add("active");
+        currentGenre = tag.dataset.genre;
+        currentPage = 1;
+        renderMangas();
+      });
+    });
+
+    // Inicializar
+    renderMangas();
+  </script>
+</body>
+</html>
