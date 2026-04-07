@@ -154,7 +154,7 @@
       }
 
       mangaGrid.innerHTML = paginatedItems.map(manga => `
-        <div class="manga-card" onclick="alert('Abriendo ${manga.title}...')">
+        <div class="manga-card" onclick="window.location.href = 'manga-detail.html?id=${manga.id}'">
           <img src="${manga.image}" alt="${manga.title}">
           <div class="manga-info">
             <h3>${manga.title}</h3>
@@ -214,6 +214,25 @@
       });
     }
 
+    // Leer parámetros de URL
+    function applyUrlFilters() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('genre')) {
+        currentGenre = urlParams.get('genre');
+        document.querySelectorAll('.genre-tag').forEach(tag => {
+          if (tag.dataset.genre === currentGenre) tag.classList.add('active');
+          else tag.classList.remove('active');
+        });
+      }
+      if (urlParams.has('filter')) {
+        currentFilter = urlParams.get('filter');
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          if (btn.dataset.filter === currentFilter) btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
+      }
+    }
+
     // Event Listeners
     searchInput.addEventListener("input", (e) => {
       currentSearch = e.target.value;
@@ -241,7 +260,7 @@
       });
     });
 
-    // Actualizar nav login
+    // Auth nav
     function updateAuthNav() {
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
       const authLink = document.getElementById('auth-link');
@@ -263,6 +282,7 @@
     }
 
     // Inicializar
+    applyUrlFilters();
     renderMangas();
     window.addEventListener('load', updateAuthNav);
   </script>

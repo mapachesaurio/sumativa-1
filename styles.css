@@ -198,6 +198,46 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+/* Nueva sección: Explora por Géneros */
+.genres-section {
+  padding: 100px 0;
+  background: #0f172a;
+}
+
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.genre-card {
+  background: #1e2937;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: #e2e8f0;
+  transition: all 0.3s;
+  border: 1px solid #334155;
+}
+
+.genre-card:hover {
+  transform: translateY(-8px);
+  background: #e11d48;
+  color: white;
+  border-color: #e11d48;
+}
+
+.genre-card i {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.genre-card h3 {
+  font-size: 1.1rem;
+}
+
 /* Catálogo específico (mangas.html) */
 .main-content {
   margin-top: 80px;
@@ -311,7 +351,7 @@ nav {
   color: #94a3b8;
 }
 
-/* Manga Grid catálogo (más grande) */
+/* Manga Grid catálogo */
 #mangaGrid .manga-card {
   background: #1e2937;
   border-radius: 12px;
