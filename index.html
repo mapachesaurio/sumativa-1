@@ -12,13 +12,14 @@
   <!-- Navbar -->
   <header>
     <nav>
-      <a href="#" class="logo">Manga<span>Verse</span></a>
+      <a href="index.html" class="logo">Manga<span>Verse</span></a>
       <div class="nav-links">
-        <a href="index.html">Inicio</a>
+        <a href="index.html" class="active">Inicio</a>
         <a href="mangas.html">Mangas</a>
         <a href="#">Géneros</a>
         <a href="#">Popular</a>
         <a href="#">Comunidad</a>
+        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
       </div>
     </nav>
   </header>
@@ -63,28 +64,28 @@
       <h2 class="section-title">Mangas Populares</h2>
       <div class="manga-grid">
         <div class="manga-card">
-          <img src="images\solo leveling.jpg" alt="Solo Leveling">
+          <img src="images/solo leveling.jpg" alt="Solo Leveling">
           <div class="manga-info">
             <h3>Solo Leveling</h3>
             <p>Acción • Fantasía</p>
           </div>
         </div>
         <div class="manga-card">
-          <img src="images\jujutsu.jpg" alt="Jujutsu Kaisen">
+          <img src="images/jujutsu.jpg" alt="Jujutsu Kaisen">
           <div class="manga-info">
             <h3>Jujutsu Kaisen</h3>
             <p>Acción • Sobrenatural</p>
           </div>
         </div>
         <div class="manga-card">
-          <img src="images\one piece.jpg" alt="One Piece">
+          <img src="images/one piece.jpg" alt="One Piece">
           <div class="manga-info">
             <h3>One Piece</h3>
             <p>Aventura • Shonen</p>
           </div>
         </div>
         <div class="manga-card">
-          <img src="images\csm.jpg" alt="Chainsaw Man">
+          <img src="images/csm.jpg" alt="Chainsaw Man">
           <div class="manga-info">
             <h3>Chainsaw Man</h3>
             <p>Acción • Oscuro</p>
@@ -103,5 +104,27 @@
     </div>
   </footer>
 
+  <script>
+    function updateAuthNav() {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const authLink = document.getElementById('auth-link');
+      if (currentUser) {
+        authLink.innerHTML = `${currentUser.username || currentUser.email} <i class="fas fa-sign-out-alt"></i>`;
+        authLink.href = '#';
+        authLink.onclick = (e) => {
+          e.preventDefault();
+          if (confirm('¿Cerrar sesión?')) {
+            localStorage.removeItem('currentUser');
+            window.location.reload();
+          }
+        };
+      } else {
+        authLink.textContent = 'Iniciar Sesión';
+        authLink.href = 'auth.html';
+        authLink.onclick = null;
+      }
+    }
+    window.addEventListener('load', updateAuthNav);
+  </script>
 </body>
 </html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaVerse - Iniciar Sesión / Registro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .auth-container {
+      max-width: 420px;
+      margin: 100px auto;
+      background: #1e2937;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #334155;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .auth-tab.active {
+      color: #e11d48;
+      border-bottom: 3px solid #e11d48;
+    }
+    .auth-form {
+      display: none;
+    }
+    .auth-form.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 1rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 1rem;
+    }
+    .form-group input:focus {
+      border-color: #e11d48;
+      outline: none;
+    }
+    .btn-auth {
+      width: 100%;
+      padding: 1rem;
+      background: #e11d48;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+    .btn-auth:hover {
+      background: #f43f5e;
+      transform: translateY(-2px);
+    }
+    .switch-link {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #94a3b8;
+    }
+    .switch-link a {
+      color: #e11d48;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Manga<span>Verse</span></a>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="mangas.html">Mangas</a>
+        <a href="#">Géneros</a>
+        <a href="#">Popular</a>
+        <a href="#">Comunidad</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="auth-container">
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tab-login">Iniciar Sesión</div>
+        <div class="auth-tab" id="tab-register">Registrarse</div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active">
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+          <input type="email" id="loginEmail" placeholder="tu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-auth">Iniciar Sesión</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Nombre de usuario</label>
+          <input type="text" id="registerUsername" placeholder="Usuario123" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+          <input type="email" id="registerEmail" placeholder="tu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Contraseña</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Confirmar contraseña</label>
+          <input type="password" id="registerConfirmPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-auth">Crear Cuenta</button>
+      </form>
+
+      <div class="switch-link" id="switchText">
+        ¿No tienes cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h2>MangaVerse</h2>
+      <p>Tu plataforma favorita para leer mangas online gratis.</p>
+      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simulación de base de datos con localStorage
+    function getUsers() {
+      return JSON.parse(localStorage.getItem('mangaUsers')) || [];
+    }
+    function saveUsers(users) {
+      localStorage.setItem('mangaUsers', JSON.stringify(users));
+    }
+
+    // Cambiar entre pestañas
+    document.getElementById('tab-login').addEventListener('click', () => {
+      document.getElementById('loginForm').classList.add('active');
+      document.getElementById('registerForm').classList.remove('active');
+      document.getElementById('tab-login').classList.add('active');
+      document.getElementById('tab-register').classList.remove('active');
+      document.getElementById('switchText').innerHTML = `¿No tienes cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a>`;
+      attachSwitchLink();
+    });
+
+    document.getElementById('tab-register').addEventListener('click', () => {
+      document.getElementById('registerForm').classList.add('active');
+      document.getElementById('loginForm').classList.remove('active');
+      document.getElementById('tab-register').classList.add('active');
+      document.getElementById('tab-login').classList.remove('active');
+      document.getElementById('switchText').innerHTML = `¿Ya tienes cuenta? <a href="#" id="switchToLogin">Inicia sesión aquí</a>`;
+      attachSwitchLink();
+    });
+
+    function attachSwitchLink() {
+      const link = document.querySelector('#switchText a');
+      if (link) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (link.id === 'switchToRegister') {
+            document.getElementById('tab-register').click();
+          } else {
+            document.getElementById('tab-login').click();
+          }
+        });
+      }
+    }
+
+    // Login
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      const users = getUsers();
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        alert(`✅ Bienvenido de nuevo, ${user.username || user.email}!`);
+        window.location.href = 'index.html';
+      } else {
+        alert('❌ Correo o contraseña incorrectos');
+      }
+    });
+
+    // Register
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('registerUsername').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+      const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert('❌ Las contraseñas no coinciden');
+        return;
+      }
+
+      const users = getUsers();
+
+      // Verificar si ya existe
+      if (users.some(u => u.email === email)) {
+        alert('❌ Ya existe una cuenta con ese correo');
+        return;
+      }
+
+      // Crear nueva cuenta
+      const newUser = { username, email, password };
+      users.push(newUser);
+      saveUsers(users);
+
+      alert('✅ Cuenta creada correctamente. Ahora puedes iniciar sesión.');
+      document.getElementById('tab-login').click(); // Cambiar a login
+      document.getElementById('loginEmail').value = email;
+    });
+
+    // Inicializar link de cambio
+    attachSwitchLink();
+  </script>
+</body>
+</html>
