@@ -7,112 +7,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .detail-container {
-      max-width: 1200px;
-      margin: 100px auto 4rem;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 3rem;
-      background: #1e2937;
-      border-radius: 16px;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
-    }
-    .cover {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .cover img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-    .info h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      color: #f8fafc;
-    }
-    .meta {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      margin: 0.8rem 0;
-    }
-    .tabs {
-      display: flex;
-      margin: 2rem 0 1rem;
-      border-bottom: 2px solid #334155;
-    }
-    .tab-btn {
-      flex: 1;
-      padding: 1rem;
-      background: none;
-      border: none;
-      color: #cbd5e1;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .tab-btn.active {
-      color: #e11d48;
-      border-bottom: 4px solid #e11d48;
-    }
-    .order-control {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 1rem;
-    }
-    .order-btn {
-      background: #0f172a;
-      color: #cbd5e1;
-      border: 1px solid #334155;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .chapter-item {
-      padding: 1rem;
-      background: #0f172a;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .chapter-item:hover {
-      background: #e11d48;
-      color: white;
-    }
-    .load-more {
-      margin-top: 1rem;
-      padding: 0.9rem 2rem;
-      background: #334155;
-      color: #e2e8f0;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-      cursor: pointer;
-    }
-    .btn-read {
-      background: #e11d48;
-      color: white;
-      padding: 1rem 2.5rem;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .detail-container {
-        grid-template-columns: 1fr;
-      }
-    }
+    .detail-container { max-width: 1200px; margin: 100px auto 4rem; padding: 2rem; display: grid; grid-template-columns: 320px 1fr; gap: 3rem; background: #1e2937; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+    .cover { display: flex; flex-direction: column; gap: 1.5rem; }
+    .cover img { width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+    .info h1 { font-size: 2.8rem; margin-bottom: 0.5rem; color: #f8fafc; }
+    .meta { color: #94a3b8; font-size: 1.1rem; margin: 0.8rem 0; }
+    .tabs { display: flex; margin: 2rem 0 1rem; border-bottom: 2px solid #334155; }
+    .tab-btn { flex: 1; padding: 1rem; background: none; border: none; color: #cbd5e1; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+    .tab-btn.active { color: #e11d48; border-bottom: 4px solid #e11d48; }
+    .order-control { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+    .order-btn { background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .chapter-item { padding: 1rem; background: #0f172a; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s; }
+    .chapter-item:hover { background: #e11d48; color: white; }
+    .load-more { margin-top: 1rem; padding: 0.9rem 2rem; background: #334155; color: #e2e8f0; border: none; border-radius: 8px; width: 100%; cursor: pointer; }
+    .btn-read { background: #e11d48; color: white; padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
+    @media (max-width: 768px) { .detail-container { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -194,7 +103,8 @@
       { id: 17, title: "Oshi no Ko", genre: "drama", rating: 4.6, chapters: 150, views: 8000, type: "recent", image: "images/oshi no ko.jpg", synopsis: "Dos hermanos reencarnan como hijos de su ídolo favorito." },
       { id: 18, title: "Kaiju No. 8", genre: "acción", rating: 4.5, chapters: 95, views: 7200, type: "recent", image: "images/kaiju n.8.jpg", synopsis: "Kafka Hibino se transforma en un kaiju." },
       { id: 19, title: "Dandadan", genre: "comedia", rating: 4.6, chapters: 124, views: 7000, type: "recent", image: "images/dandadan.jpg", synopsis: "Dos adolescentes se ven envueltos en una guerra entre fantasmas y aliens." },
-      { id: 20, title: "Tower of God", genre: "fantasía", rating: 4.5, chapters: 590, views: 8800, type: "popular", image: "images/tower of god.jpg", synopsis: "Bam entra a la Torre para reunirse con su amiga Rachel." }
+      { id: 20, title: "Tower of God", genre: "fantasía", rating: 4.5, chapters: 590, views: 8800, type: "popular", image: "images/tower of god.jpg", synopsis: "Bam entra a la Torre para reunirse con su amiga Rachel." },
+      { id: 21, title: "El Mago Pastor", genre: "fantasía", rating: 4.6, chapters: 1, views: 1200, type: "recent", image: "https://picsum.photos/id/1015/400/600", synopsis: "Un joven pastor descubre que posee poderes mágicos y debe proteger su aldea de fuerzas oscuras." }
     ];
 
     function getMangaById(id) {
@@ -236,7 +146,7 @@
         const div = document.createElement('div');
         div.className = 'chapter-item';
         div.innerHTML = `<span><strong>Capítulo ${num}</strong></span><span>Hace ${Math.floor(Math.random()*10)+1} días</span>`;
-        div.onclick = () => alert(`Abriendo Capítulo ${num} de ${currentManga.title}...`);
+        div.onclick = () => window.location.href = `reader.html?id=${currentManga.id}&chapter=${num}`;
         list.appendChild(div);
       });
 
@@ -274,7 +184,7 @@
     });
 
     function startReading() {
-      alert("Iniciando lector de capítulos...");
+      window.location.href = `reader.html?id=${currentManga.id}&chapter=1`;
     }
 
     function updateAuthNav() {
