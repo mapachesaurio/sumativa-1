@@ -9,35 +9,28 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <nav>
       <a href="index.html" class="logo">Manga<span>Verse</span></a>
       <div class="nav-links">
         <a href="index.html">Inicio</a>
         <a href="mangas.html" class="active">Mangas</a>
-        <a href="#">Géneros</a>
-        <a href="#">Popular</a>
-        <a href="#">Comunidad</a>
         <a href="auth.html" id="auth-link">Iniciar Sesión</a>
       </div>
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="main-content">
     <div class="page-header">
       <h1>Catálogo de Mangas</h1>
       <p>Descubre miles de mangas y manhwas en español</p>
     </div>
 
-    <!-- Search -->
     <div class="search-section">
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Buscar manga por título...">
       </div>
 
-      <!-- Filter Buttons -->
       <div class="filters">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="popular">Más Populares</button>
@@ -45,7 +38,6 @@
         <button class="filter-btn" data-filter="top-rated">Mejor Valorados</button>
       </div>
 
-      <!-- Genre Tags -->
       <div class="genres" id="genreFilters">
         <span class="genre-tag active" data-genre="all">Todos</span>
         <span class="genre-tag" data-genre="acción">Acción</span>
@@ -61,15 +53,10 @@
     </div>
 
     <div class="results-count" id="resultsCount"></div>
-
-    <!-- Manga Grid -->
     <div id="mangaGrid" class="manga-grid"></div>
-
-    <!-- Pagination -->
     <div class="pagination" id="pagination"></div>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <h2>MangaVerse</h2>
@@ -79,7 +66,6 @@
   </footer>
 
   <script>
-    // Datos de mangas
     const mangasData = [
       { id: 1, title: "Solo Leveling", genre: "acción", rating: 4.8, chapters: 179, views: 15000, type: "popular", image: "images/solo leveling.jpg" },
       { id: 2, title: "Jujutsu Kaisen", genre: "acción", rating: 4.7, chapters: 245, views: 12000, type: "popular", image: "images/jujutsu.jpg" },
@@ -116,19 +102,11 @@
 
     function filterMangas() {
       let filtered = [...mangasData];
-      if (currentSearch) {
-        filtered = filtered.filter(manga => manga.title.toLowerCase().includes(currentSearch.toLowerCase()));
-      }
-      if (currentGenre !== "all") {
-        filtered = filtered.filter(manga => manga.genre === currentGenre);
-      }
-      if (currentFilter === "popular") {
-        filtered = filtered.sort((a, b) => b.views - a.views);
-      } else if (currentFilter === "recent") {
-        filtered = filtered.filter(manga => manga.type === "recent");
-      } else if (currentFilter === "top-rated") {
-        filtered = filtered.sort((a, b) => b.rating - a.rating);
-      }
+      if (currentSearch) filtered = filtered.filter(m => m.title.toLowerCase().includes(currentSearch.toLowerCase()));
+      if (currentGenre !== "all") filtered = filtered.filter(m => m.genre === currentGenre);
+      if (currentFilter === "popular") filtered.sort((a,b) => b.views - a.views);
+      else if (currentFilter === "recent") filtered = filtered.filter(m => m.type === "recent");
+      else if (currentFilter === "top-rated") filtered.sort((a,b) => b.rating - a.rating);
       return filtered;
     }
 
@@ -142,13 +120,7 @@
       resultsCount.innerHTML = `Mostrando ${paginatedItems.length} de ${totalItems} mangas`;
 
       if (paginatedItems.length === 0) {
-        mangaGrid.innerHTML = `
-          <div class="no-results">
-            <i class="fas fa-book-open"></i>
-            <h3>No se encontraron mangas</h3>
-            <p>Intenta con otros filtros o palabras clave</p>
-          </div>
-        `;
+        mangaGrid.innerHTML = `<div class="no-results"><i class="fas fa-book-open"></i><h3>No se encontraron mangas</h3><p>Intenta con otros filtros o palabras clave</p></div>`;
         pagination.innerHTML = "";
         return;
       }
@@ -159,12 +131,8 @@
           <div class="manga-info">
             <h3>${manga.title}</h3>
             <div class="genre">${manga.genre.charAt(0).toUpperCase() + manga.genre.slice(1)}</div>
-            <div class="rating">
-              ${renderStars(manga.rating)} ${manga.rating}
-            </div>
-            <div class="chapters">
-              <i class="fas fa-book"></i> ${manga.chapters} capítulos
-            </div>
+            <div class="rating">${renderStars(manga.rating)} ${manga.rating}</div>
+            <div class="chapters"><i class="fas fa-book"></i> ${manga.chapters} capítulos</div>
           </div>
         </div>
       `).join("");
@@ -173,48 +141,37 @@
     }
 
     function renderStars(rating) {
-      const fullStars = Math.floor(rating);
-      const halfStar = rating % 1 >= 0.5;
-      let stars = "";
-      for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
-      if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
-      const emptyStars = 5 - Math.ceil(rating);
-      for (let i = 0; i < emptyStars; i++) stars += '<i class="far fa-star"></i>';
+      let stars = '';
+      const full = Math.floor(rating);
+      for (let i = 0; i < full; i++) stars += '<i class="fas fa-star"></i>';
+      if (rating % 1 >= 0.5) stars += '<i class="fas fa-star-half-alt"></i>';
+      for (let i = 0; i < 5 - Math.ceil(rating); i++) stars += '<i class="far fa-star"></i>';
       return stars;
     }
 
     function renderPagination(totalPages) {
-      if (totalPages <= 1) {
-        pagination.innerHTML = "";
-        return;
-      }
+      if (totalPages <= 1) { pagination.innerHTML = ""; return; }
       let pages = [];
       if (totalPages <= 7) {
         for (let i = 1; i <= totalPages; i++) pages.push(i);
       } else {
-        if (currentPage <= 3) {
-          pages = [1, 2, 3, 4, "...", totalPages];
-        } else if (currentPage >= totalPages - 2) {
-          pages = [1, "...", totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-        } else {
-          pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages];
-        }
+        if (currentPage <= 3) pages = [1,2,3,4,"...",totalPages];
+        else if (currentPage >= totalPages-2) pages = [1,"...",totalPages-3,totalPages-2,totalPages-1,totalPages];
+        else pages = [1,"...",currentPage-1,currentPage,currentPage+1,"...",totalPages];
       }
       pagination.innerHTML = pages.map(page => {
-        if (page === "...") return `<span class="page-btn" style="cursor: default;">...</span>`;
+        if (page === "...") return `<span class="page-btn" style="cursor:default;">...</span>`;
         return `<button class="page-btn ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`;
       }).join("");
-
       document.querySelectorAll(".page-btn[data-page]").forEach(btn => {
         btn.addEventListener("click", () => {
           currentPage = parseInt(btn.dataset.page);
           renderMangas();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.scrollTo({top:0, behavior:"smooth"});
         });
       });
     }
 
-    // Leer parámetros de URL
     function applyUrlFilters() {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('genre')) {
@@ -224,22 +181,9 @@
           else tag.classList.remove('active');
         });
       }
-      if (urlParams.has('filter')) {
-        currentFilter = urlParams.get('filter');
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-          if (btn.dataset.filter === currentFilter) btn.classList.add('active');
-          else btn.classList.remove('active');
-        });
-      }
     }
 
-    // Event Listeners
-    searchInput.addEventListener("input", (e) => {
-      currentSearch = e.target.value;
-      currentPage = 1;
-      renderMangas();
-    });
-
+    searchInput.addEventListener("input", e => { currentSearch = e.target.value; currentPage = 1; renderMangas(); });
     document.querySelectorAll(".filter-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
@@ -249,7 +193,6 @@
         renderMangas();
       });
     });
-
     document.querySelectorAll(".genre-tag").forEach(tag => {
       tag.addEventListener("click", () => {
         document.querySelectorAll(".genre-tag").forEach(t => t.classList.remove("active"));
@@ -260,28 +203,21 @@
       });
     });
 
-    // Auth nav
     function updateAuthNav() {
-      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const user = JSON.parse(localStorage.getItem('currentUser'));
       const authLink = document.getElementById('auth-link');
-      if (currentUser) {
-        authLink.innerHTML = `${currentUser.username || currentUser.email} <i class="fas fa-sign-out-alt"></i>`;
-        authLink.href = '#';
-        authLink.onclick = (e) => {
+      if (user) {
+        authLink.outerHTML = `<a href="#" class="nav-profile" id="profileLink">${user.username || user.email} <i class="fas fa-sign-out-alt"></i></a>`;
+        document.getElementById('profileLink').onclick = (e) => {
           e.preventDefault();
           if (confirm('¿Cerrar sesión?')) {
             localStorage.removeItem('currentUser');
-            window.location.reload();
+            location.reload();
           }
         };
-      } else {
-        authLink.textContent = 'Iniciar Sesión';
-        authLink.href = 'auth.html';
-        authLink.onclick = null;
       }
     }
 
-    // Inicializar
     applyUrlFilters();
     renderMangas();
     window.addEventListener('load', updateAuthNav);
