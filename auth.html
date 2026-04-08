@@ -7,16 +7,71 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .auth-container { max-width: 420px; margin: 100px auto; background: #1e2937; border-radius: 16px; padding: 2rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
-    .auth-tabs { display: flex; margin-bottom: 2rem; border-bottom: 2px solid #334155; }
-    .auth-tab { flex: 1; padding: 1rem; text-align: center; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-    .auth-tab.active { color: #e11d48; border-bottom: 3px solid #e11d48; }
+    .auth-container { 
+      max-width: 420px; 
+      margin: 100px auto; 
+      background: #1e2937; 
+      border-radius: 16px; 
+      padding: 2rem; 
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); 
+    }
+    .auth-tabs { 
+      display: flex; 
+      margin-bottom: 2rem; 
+      border-bottom: 2px solid #334155; 
+    }
+    .auth-tab { 
+      flex: 1; 
+      padding: 1rem; 
+      text-align: center; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: all 0.3s; 
+    }
+    .auth-tab.active { 
+      color: #e11d48; 
+      border-bottom: 3px solid #e11d48; 
+    }
     .auth-form { display: none; }
     .auth-form.active { display: block; }
     .form-group { margin-bottom: 1.2rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #cbd5e1; }
-    .form-group input { width: 100%; padding: 1rem; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #e2e8f0; font-size: 1rem; }
-    .btn-auth { width: 100%; padding: 1rem; background: #e11d48; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 1rem; transition: all 0.3s; }
+    .form-group label { 
+      display: block; 
+      margin-bottom: 0.5rem; 
+      font-size: 0.9rem; 
+      color: #cbd5e1; 
+    }
+    .form-group input { 
+      width: 100%; 
+      padding: 1rem; 
+      background: #0f172a; 
+      border: 1px solid #334155; 
+      border-radius: 8px; 
+      color: #e2e8f0; 
+      font-size: 1rem; 
+    }
+    .btn-auth { 
+      width: 100%; 
+      padding: 1rem; 
+      background: #e11d48; 
+      color: white; 
+      border: none; 
+      border-radius: 8px; 
+      font-size: 1.1rem; 
+      font-weight: bold; 
+      cursor: pointer; 
+      margin-top: 1rem; 
+      transition: all 0.3s; 
+    }
+    .switch-link { 
+      text-align: center; 
+      margin-top: 1.5rem; 
+      color: #94a3b8; 
+    }
+    .switch-link a { 
+      color: #e11d48; 
+      text-decoration: none; 
+    }
   </style>
 </head>
 <body>
@@ -38,21 +93,43 @@
         <div class="auth-tab" id="tab-register">Registrarse</div>
       </div>
 
+      <!-- Formulario de Login -->
       <form id="loginForm" class="auth-form active">
-        <div class="form-group"><label><i class="fas fa-envelope"></i> Correo electrónico</label><input type="email" id="loginEmail" placeholder="tu@email.com" required></div>
-        <div class="form-group"><label><i class="fas fa-lock"></i> Contraseña</label><input type="password" id="loginPassword" placeholder="••••••••" required></div>
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Correo electrónico o Nombre de usuario</label>
+          <input type="text" id="loginIdentifier" placeholder="tu@email.com o usuario123" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
         <button type="submit" class="btn-auth">Iniciar Sesión</button>
       </form>
 
+      <!-- Formulario de Registro -->
       <form id="registerForm" class="auth-form">
-        <div class="form-group"><label><i class="fas fa-user"></i> Nombre de usuario</label><input type="text" id="registerUsername" placeholder="Usuario123" required></div>
-        <div class="form-group"><label><i class="fas fa-envelope"></i> Correo electrónico</label><input type="email" id="registerEmail" placeholder="tu@email.com" required></div>
-        <div class="form-group"><label><i class="fas fa-lock"></i> Contraseña</label><input type="password" id="registerPassword" placeholder="••••••••" required></div>
-        <div class="form-group"><label><i class="fas fa-lock"></i> Confirmar contraseña</label><input type="password" id="registerConfirmPassword" placeholder="••••••••" required></div>
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Nombre de usuario</label>
+          <input type="text" id="registerUsername" placeholder="Usuario123" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+          <input type="email" id="registerEmail" placeholder="tu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Contraseña</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Confirmar contraseña</label>
+          <input type="password" id="registerConfirmPassword" placeholder="••••••••" required>
+        </div>
         <button type="submit" class="btn-auth">Crear Cuenta</button>
       </form>
 
-      <div class="switch-link" id="switchText">¿No tienes cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a></div>
+      <div class="switch-link" id="switchText">
+        ¿No tienes cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a>
+      </div>
     </div>
   </main>
 
@@ -65,8 +142,12 @@
   </footer>
 
   <script>
-    function getUsers() { return JSON.parse(localStorage.getItem('mangaUsers')) || []; }
-    function saveUsers(users) { localStorage.setItem('mangaUsers', JSON.stringify(users)); }
+    function getUsers() { 
+      return JSON.parse(localStorage.getItem('mangaUsers')) || []; 
+    }
+    function saveUsers(users) { 
+      localStorage.setItem('mangaUsers', JSON.stringify(users)); 
+    }
 
     // Tabs
     document.getElementById('tab-login').addEventListener('click', () => {
@@ -98,23 +179,28 @@
       }
     }
 
-    // Login
+    // Login - Ahora acepta correo O nombre de usuario
     document.getElementById('loginForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('loginEmail').value.trim();
+      const identifier = document.getElementById('loginIdentifier').value.trim(); // puede ser email o username
       const password = document.getElementById('loginPassword').value;
       const users = getUsers();
-      const user = users.find(u => u.email === email && u.password === password);
+
+      const user = users.find(u => 
+        (u.email === identifier || u.username === identifier) && 
+        u.password === password
+      );
+
       if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         alert(`✅ Bienvenido de nuevo, ${user.username || user.email}!`);
         window.location.href = 'index.html';
       } else {
-        alert('❌ Correo o contraseña incorrectos');
+        alert('❌ Usuario, correo o contraseña incorrectos');
       }
     });
 
-    // Register
+    // Register (sin cambios)
     document.getElementById('registerForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const username = document.getElementById('registerUsername').value.trim();
@@ -122,10 +208,16 @@
       const password = document.getElementById('registerPassword').value;
       const confirmPassword = document.getElementById('registerConfirmPassword').value;
 
-      if (password !== confirmPassword) { alert('❌ Las contraseñas no coinciden'); return; }
+      if (password !== confirmPassword) { 
+        alert('❌ Las contraseñas no coinciden'); 
+        return; 
+      }
 
       const users = getUsers();
-      if (users.some(u => u.email === email)) { alert('❌ Ya existe una cuenta con ese correo'); return; }
+      if (users.some(u => u.email === email || u.username === username)) { 
+        alert('❌ Ya existe una cuenta con ese correo o nombre de usuario'); 
+        return; 
+      }
 
       const newUser = { username, email, password };
       users.push(newUser);
@@ -133,7 +225,7 @@
 
       alert('✅ Cuenta creada correctamente. Ahora puedes iniciar sesión.');
       document.getElementById('tab-login').click();
-      document.getElementById('loginEmail').value = email;
+      document.getElementById('loginIdentifier').value = email || username;
     });
 
     attachSwitchLink();
