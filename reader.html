@@ -3,67 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse - Lector</title>
+  <title>Lector - MangaVerse</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    body { 
-      background:#0a0f1c; 
-      margin:0; 
-      padding:0; 
-      overflow-x:hidden; 
-    }
-    .reader-header, .reader-footer {
-      position:fixed; left:0; right:0; background:#0f172a; z-index:1000;
-      transition: transform 0.4s ease;
-    }
-    .reader-header { top:0; padding:12px 20px; display:flex; align-items:center; gap:15px; border-bottom:1px solid #334155; }
-    .reader-footer { bottom:0; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #334155; }
-
-    .hidden { transform: translateY(-100%); }
-    .reader-footer.hidden { transform: translateY(100%); }
-
-    .reader-main { 
-      margin-top:65px; 
-      padding:10px 0; 
-      width: 100%; 
-    }
+    .reader-main { margin-top: 70px; padding: 10px; }
     .page-container { 
-      display:flex; 
-      flex-direction:column; 
-      gap:0px; 
-      align-items:center; 
-      max-width: 600px;          /* ← reducido más */
-      margin: 0 auto;
+      max-width: 720px; 
+      margin: 0 auto; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
     }
-    .page-container img {
+    .page-container img { 
       width: 100%; 
-      max-width: 720px;
-      height: auto;
-      display: block;
+      max-width: 720px; 
+      height: auto; 
+      display: block; 
+      margin-bottom: 12px; 
       box-shadow: 0 10px 30px rgba(0,0,0,0.7);
     }
-    .progress-bar { height:6px; background:#334155; border-radius:9999px; overflow:hidden; flex:1; margin:0 15px; }
-    .progress { height:100%; background:#e11d48; width:0%; transition:width 0.3s; }
-    .btn-control { 
-      background:#1e2937; color:#e2e8f0; border:none; padding:10px 18px; 
-      border-radius:8px; cursor:pointer; font-size:1.1rem; 
-    }
-    .btn-control:hover { background:#e11d48; }
   </style>
 </head>
 <body>
 
-  <div class="reader-header" id="header">
-    <a href="#" onclick="goBack()" class="btn-control"><i class="fas fa-arrow-left"></i></a>
-    <div>
-      <h2 id="mangaTitle" style="margin:0; font-size:1.4rem;">El Mago Pastor</h2>
-      <p id="chapterInfo" style="margin:0; color:#94a3b8; font-size:0.95rem;"></p>
+  <div style="position:fixed; top:0; left:0; right:0; background:#0f172a; padding:12px; z-index:1000; display:flex; justify-content:space-between; align-items:center; color:white;">
+    <button onclick="goBack()" style="background:none; border:none; color:white; font-size:1.5rem;"><i class="fas fa-arrow-left"></i></button>
+    
+    <div style="text-align:center;">
+      <h2 id="mangaTitle" style="margin:0; font-size:1.4rem;"></h2>
+      <p id="chapterInfo" style="margin:4px 0 0; color:#94a3b8;"></p>
     </div>
-    <div style="margin-left:auto; display:flex; align-items:center; gap:12px;">
-      <button onclick="prevPage()" class="btn-control"><i class="fas fa-chevron-left"></i></button>
-      <span id="pageCounter" style="font-weight:600; min-width:90px; text-align:center;">1 / 59</span>
-      <button onclick="nextPage()" class="btn-control"><i class="fas fa-chevron-right"></i></button>
+
+    <div>
+      <button onclick="prevChapter()" style="margin-right:15px;">◀ Cap. anterior</button>
+      <button onclick="nextChapter()">Cap. siguiente ▶</button>
     </div>
   </div>
 
@@ -71,95 +45,68 @@
     <div id="pages" class="page-container"></div>
   </div>
 
-  <div class="reader-footer" id="footer">
-    <button onclick="prevChapter()" class="btn-control"><i class="fas fa-step-backward"></i> Cap. anterior</button>
-    <div class="progress-bar"><div id="progress" class="progress"></div></div>
-    <button onclick="nextChapter()" class="btn-control">Cap. siguiente <i class="fas fa-step-forward"></i></button>
-  </div>
-
   <script>
-    const mangaFolder = "El_mago_pastor";
-    let chapter = 1;
-    let currentPage = 1;
-    const totalPages = 59;
+    let currentManga = null;
+    let currentChapter = 1;
 
-    function pad(num) { return String(num).padStart(3, '0'); }
+    async function loadChapter() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      currentChapter = parseInt(params.get('chapter')) || 1;
 
-    function renderPages() {
+      // Datos hardcodeados temporalmente para que funcione
+      currentManga = {
+        id: 21,
+        title: "El Mago Pastor",
+        chapters_count: 14,
+        folder: "El_Mago_Pastor"
+      };
+
+      document.getElementById('mangaTitle').textContent = currentManga.title;
+      document.getElementById('chapterInfo').textContent = `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
+
       const container = document.getElementById('pages');
       container.innerHTML = '';
-      const chapterPadded = pad(chapter);
-      for (let i = 1; i <= totalPages; i++) {
-        const pagePadded = pad(i);
+
+      const folder = `mangas/${currentManga.folder}/Cap_${String(currentChapter).padStart(3, '0')}`;
+
+      let foundImages = 0;
+
+      for (let i = 1; i <= 200; i++) {
         const img = document.createElement('img');
-        img.src = `${mangaFolder}/Cap_${chapterPadded}/${pagePadded}.jpg`;
-        img.alt = `Página ${i}`;
-        img.onerror = () => img.style.display = 'none';
+        img.src = `${folder}/${String(i).padStart(3, '0')}.jpg`;
+        img.loading = "lazy";
+
+        img.onload = () => foundImages++;
+        img.onerror = () => {
+          if (i === 1) {
+            container.innerHTML = `<p style="color:#ef4444; padding:60px; font-size:1.2rem;">No se encontraron imágenes para el Capítulo ${currentChapter}</p>`;
+          }
+        };
+
         container.appendChild(img);
       }
     }
 
-    function updateProgress() {
-      const percent = Math.round(((currentPage - 1) / (totalPages - 1)) * 100);
-      document.getElementById('progress').style.width = percent + '%';
-      document.getElementById('pageCounter').textContent = `${currentPage} / ${totalPages}`;
-    }
-
-    function nextPage() {
-      if (currentPage < totalPages) {
-        currentPage++;
-        window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
-        updateProgress();
+    function nextChapter() {
+      if (currentChapter < 14) {
+        currentChapter++;
+        window.location.href = `reader.html?id=21&chapter=${currentChapter}`;
       }
     }
 
-    function prevPage() {
-      if (currentPage > 1) currentPage--;
-      updateProgress();
+    function prevChapter() {
+      if (currentChapter > 1) {
+        currentChapter--;
+        window.location.href = `reader.html?id=21&chapter=${currentChapter}`;
+      }
     }
-
-    function nextChapter() { alert('Solo tienes el capítulo 1 por ahora'); }
-    function prevChapter() { alert('Solo tienes el capítulo 1 por ahora'); }
 
     function goBack() {
-      window.location.href = 'manga-detail.html?id=21';
+      window.location.href = `manga-detail.html?id=21`;
     }
 
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      const header = document.getElementById('header');
-      const footer = document.getElementById('footer');
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        header.classList.add('hidden');
-        footer.classList.add('hidden');
-      } else {
-        header.classList.remove('hidden');
-        footer.classList.remove('hidden');
-      }
-      lastScrollY = currentScrollY;
-
-      const pages = document.querySelectorAll('#pages img');
-      let visibleIndex = 1;
-      pages.forEach((img, index) => {
-        const rect = img.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2) visibleIndex = index + 1;
-      });
-      currentPage = visibleIndex;
-      updateProgress();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') nextPage();
-      if (e.key === 'ArrowLeft') prevPage();
-    });
-
-    window.addEventListener('load', () => {
-      document.getElementById('chapterInfo').innerHTML = `Capítulo <strong>1</strong>`;
-      renderPages();
-      updateProgress();
-    });
+    window.onload = loadChapter;
   </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse - Lee Mangas Gratis</title>
+  <title>MangaVerse</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,124 +15,14 @@
       <div class="nav-links">
         <a href="index.html" class="active">Inicio</a>
         <a href="mangas.html">Mangas</a>
-        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Lee Mangas Gratis</h1>
-      <p>La mejor plataforma para disfrutar de miles de mangas en español. Actualizaciones diarias, calidad HD y sin anuncios molestos.</p>
-      <a href="#" class="btn">Empezar a Leer Ahora</a>
-      <a href="mangas.html" class="btn btn-secondary">Explorar Catálogo</a>
-    </div>
-  </section>
+  <div class="main-content">
+    <h1>Bienvenido a MangaVerse</h1>
+    <a href="mangas.html" style="display:inline-block; padding:15px 30px; background:var(--primary); color:white; text-decoration:none; border-radius:50px;">Ver Catálogo</a>
+  </div>
 
-  <!-- Features -->
-  <section class="features">
-    <div class="container">
-      <h2 class="section-title">¿Por qué elegir MangaVerse?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <i class="fas fa-bolt"></i>
-          <h3>Actualizaciones Diarias</h3>
-          <p>Nuevos capítulos todos los días de tus mangas favoritos.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-book-open"></i>
-          <h3>Miles de Títulos</h3>
-          <p>Más de 10.000 mangas y manhwas disponibles en español.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-mobile-alt"></i>
-          <h3>Lee en Cualquier Dispositivo</h3>
-          <p>Optimizado para celular, tablet y computadora.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mangas Populares -->
-  <section class="popular">
-    <div class="container">
-      <h2 class="section-title">Mangas Populares</h2>
-      <div class="manga-grid">
-        <div class="manga-card">
-          <img src="images/solo leveling.jpg" alt="Solo Leveling">
-          <div class="manga-info">
-            <h3>Solo Leveling</h3>
-            <p>Acción • Fantasía</p>
-          </div>
-        </div>
-        <div class="manga-card">
-          <img src="images/jujutsu.jpg" alt="Jujutsu Kaisen">
-          <div class="manga-info">
-            <h3>Jujutsu Kaisen</h3>
-            <p>Acción • Sobrenatural</p>
-          </div>
-        </div>
-        <div class="manga-card">
-          <img src="images/one piece.jpg" alt="One Piece">
-          <div class="manga-info">
-            <h3>One Piece</h3>
-            <p>Aventura • Shonen</p>
-          </div>
-        </div>
-        <div class="manga-card">
-          <img src="images/csm.jpg" alt="Chainsaw Man">
-          <div class="manga-info">
-            <h3>Chainsaw Man</h3>
-            <p>Acción • Oscuro</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Explora por Géneros -->
-  <section class="genres-section">
-    <div class="container">
-      <h2 class="section-title">Explora por Géneros</h2>
-      <div class="genres-grid">
-        <a href="mangas.html?genre=acción" class="genre-card"><i class="fas fa-fist-raised"></i><h3>Acción</h3></a>
-        <a href="mangas.html?genre=aventura" class="genre-card"><i class="fas fa-map"></i><h3>Aventura</h3></a>
-        <a href="mangas.html?genre=comedia" class="genre-card"><i class="fas fa-laugh"></i><h3>Comedia</h3></a>
-        <a href="mangas.html?genre=drama" class="genre-card"><i class="fas fa-theater-masks"></i><h3>Drama</h3></a>
-        <a href="mangas.html?genre=fantasía" class="genre-card"><i class="fas fa-dragon"></i><h3>Fantasía</h3></a>
-        <a href="mangas.html?genre=romance" class="genre-card"><i class="fas fa-heart"></i><h3>Romance</h3></a>
-        <a href="mangas.html?genre=sobrenatural" class="genre-card"><i class="fas fa-ghost"></i><h3>Sobrenatural</h3></a>
-        <a href="mangas.html?genre=shonen" class="genre-card"><i class="fas fa-fire"></i><h3>Shonen</h3></a>
-        <a href="mangas.html?genre=seinen" class="genre-card"><i class="fas fa-skull"></i><h3>Seinen</h3></a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <h2>MangaVerse</h2>
-      <p>Tu plataforma favorita para leer mangas online gratis.</p>
-      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
-    function updateAuthNav() {
-      const user = JSON.parse(localStorage.getItem('currentUser'));
-      const authLink = document.getElementById('auth-link');
-      if (user) {
-        authLink.outerHTML = `<a href="#" class="nav-profile" id="profileLink">${user.username || user.email} <i class="fas fa-sign-out-alt"></i></a>`;
-        document.getElementById('profileLink').onclick = (e) => {
-          e.preventDefault();
-          if (confirm('¿Cerrar sesión?')) {
-            localStorage.removeItem('currentUser');
-            location.reload();
-          }
-        };
-      }
-    }
-    window.addEventListener('load', updateAuthNav);
-  </script>
 </body>
 </html>

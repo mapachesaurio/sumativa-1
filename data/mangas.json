@@ -1,0 +1,13 @@
+{
+  "mangas": [
+    {
+      "id": 21,
+      "title": "El Mago Pastor",
+      "genre": "fantasía",
+      "rating": 4.6,
+      "chapters_count": 14,
+      "image": "images/mago-pastor.jpg",
+      "folder": "El_Mago_Pastor"
+    }
+  ]
+}

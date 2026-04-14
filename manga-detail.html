@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse - Detalle del Manga</title>
+  <title>El Mago Pastor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .detail-container { max-width: 1200px; margin: 100px auto 4rem; padding: 2rem; display: grid; grid-template-columns: 320px 1fr; gap: 3rem; background: #1e2937; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
-    .cover { display: flex; flex-direction: column; gap: 1.5rem; }
-    .cover img { width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-    .info h1 { font-size: 2.8rem; margin-bottom: 0.5rem; color: #f8fafc; }
-    .meta { color: #94a3b8; font-size: 1.1rem; margin: 0.8rem 0; }
-    .tabs { display: flex; margin: 2rem 0 1rem; border-bottom: 2px solid #334155; }
-    .tab-btn { flex: 1; padding: 1rem; background: none; border: none; color: #cbd5e1; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-    .tab-btn.active { color: #e11d48; border-bottom: 4px solid #e11d48; }
-    .order-control { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
-    .order-btn { background: #0f172a; color: #cbd5e1; border: 1px solid #334155; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-    .chapter-item { padding: 1rem; background: #0f172a; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s; }
-    .chapter-item:hover { background: #e11d48; color: white; }
-    .load-more { margin-top: 1rem; padding: 0.9rem 2rem; background: #334155; color: #e2e8f0; border: none; border-radius: 8px; width: 100%; cursor: pointer; }
-    .btn-read { background: #e11d48; color: white; padding: 1rem 2.5rem; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
-    @media (max-width: 768px) { .detail-container { grid-template-columns: 1fr; } }
+    .detail-container {
+      max-width: 1100px;
+      margin: 100px auto;
+      padding: 30px;
+      background: #1e2937;
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+    }
+    .cover img { width: 100%; border-radius: 12px; }
+    .chapter-item {
+      padding: 16px;
+      background: #0f172a;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .chapter-item:hover { background: #e11d48; }
   </style>
 </head>
 <body>
@@ -29,179 +33,41 @@
   <header>
     <nav>
       <a href="index.html" class="logo">Manga<span>Verse</span></a>
-      <div class="nav-links">
-        <a href="index.html">Inicio</a>
-        <a href="mangas.html">Mangas</a>
-        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
-      </div>
     </nav>
   </header>
 
-  <div class="detail-container">
-    <div class="cover">
-      <img id="mangaCover" src="" alt="Portada">
-      <button class="btn-read" onclick="startReading()">
-        <i class="fas fa-book-open"></i> Empezar a Leer
-      </button>
-    </div>
-
-    <div class="info">
-      <h1 id="mangaTitle"></h1>
-      <p class="meta" id="mangaGenre"></p>
-      <p class="meta" id="mangaRating"></p>
-      <p class="meta" id="mangaChapters"></p>
-      <p class="meta" id="mangaViews"></p>
-
-      <div class="tabs">
-        <button id="btnSynopsis" class="tab-btn active">Sinopsis</button>
-        <button id="btnChapters" class="tab-btn">Capítulos</button>
+  <div class="main-content">
+    <div class="detail-container">
+      <div class="cover">
+        <img src="https://picsum.photos/id/1015/400/600" alt="Portada">
+        <button class="btn-read" onclick="startReading()">Empezar a Leer</button>
       </div>
 
-      <div id="contentSynopsis" class="tab-content">
-        <p id="synopsisText" class="synopsis-text"></p>
-      </div>
+      <div>
+        <h1>El Mago Pastor</h1>
+        <p><strong>Género:</strong> Fantasía</p>
+        <p><strong>Rating:</strong> 4.6 ★</p>
+        <p><strong>Capítulos:</strong> 14</p>
 
-      <div id="contentChapters" class="tab-content" style="display: none;">
-        <div class="order-control">
-          <button id="toggleOrder" class="order-btn">
-            <i class="fas fa-sort"></i>
-            <span id="orderText">Del más reciente al más antiguo</span>
-          </button>
-        </div>
-        <div id="chaptersList" class="chapters-list"></div>
-        <button id="loadMoreBtn" class="load-more">Ver más capítulos</button>
+        <h2>Capítulos disponibles</h2>
+        <div id="list"></div>
       </div>
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <h2>MangaVerse</h2>
-      <p>Tu plataforma favorita para leer mangas online gratis.</p>
-      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
   <script>
-    const mangasData = [
-      { id: 1, title: "Solo Leveling", genre: "acción", rating: 4.8, chapters: 179, views: 15000, type: "popular", image: "images/solo leveling.jpg", synopsis: "En un mundo donde las puertas a otras dimensiones se abren, Sung Jin-Woo, el cazador más débil de la humanidad, obtiene un sistema que le permite volverse más fuerte con cada batalla." },
-      { id: 2, title: "Jujutsu Kaisen", genre: "acción", rating: 4.7, chapters: 245, views: 12000, type: "popular", image: "images/jujutsu.jpg", synopsis: "Itadori Yuji traga un dedo maldito y se convierte en el recipiente de Ryomen Sukuna, el rey de las maldiciones." },
-      { id: 3, title: "One Piece", genre: "aventura", rating: 4.9, chapters: 1090, views: 25000, type: "popular", image: "images/one piece.jpg", synopsis: "Monkey D. Luffy y su tripulación pirata buscan el tesoro definitivo llamado One Piece." },
-      { id: 4, title: "Chainsaw Man", genre: "acción", rating: 4.6, chapters: 167, views: 9800, type: "popular", image: "images/csm.jpg", synopsis: "Denji se fusiona con un demonio motosierra y se convierte en cazador de demonios." },
-      { id: 5, title: "Demon Slayer", genre: "acción", rating: 4.7, chapters: 205, views: 11000, type: "top-rated", image: "images/demon slayer.jpg", synopsis: "Tanjiro Kamado se une al Cuerpo de Cazadores de Demonios para salvar a su hermana." },
-      { id: 6, title: "My Hero Academia", genre: "shonen", rating: 4.5, chapters: 390, views: 10500, type: "popular", image: "images/my hero academia.jpg", synopsis: "Izuku Midoriya, un chico sin quirk, sueña con convertirse en el héroe número uno." },
-      { id: 7, title: "Attack on Titan", genre: "drama", rating: 4.9, chapters: 139, views: 20000, type: "top-rated", image: "images/snk.jpg", synopsis: "La humanidad vive dentro de murallas para protegerse de los titanes." },
-      { id: 8, title: "Naruto", genre: "aventura", rating: 4.8, chapters: 700, views: 18000, type: "popular", image: "images/naruto.jpg", synopsis: "Naruto Uzumaki sueña con convertirse en Hokage." },
-      { id: 9, title: "Tokyo Revengers", genre: "drama", rating: 4.4, chapters: 278, views: 8500, type: "recent", image: "images/tokyo revengers.jpg", synopsis: "Takemichi viaja en el tiempo para salvar a su novia." },
-      { id: 10, title: "Spy x Family", genre: "comedia", rating: 4.7, chapters: 89, views: 9200, type: "recent", image: "images/spy x famili.jpg", synopsis: "Un espía, una asesina y una niña telépata forman una familia falsa." },
-      { id: 11, title: "One Punch Man", genre: "comedia", rating: 4.6, chapters: 190, views: 9500, type: "popular", image: "images/opm.jpg", synopsis: "Saitama derrota a cualquier enemigo de un solo golpe." },
-      { id: 12, title: "Hunter x Hunter", genre: "aventura", rating: 4.8, chapters: 400, views: 10200, type: "top-rated", image: "images/hxh.jpg", synopsis: "Gon Freecss quiere convertirse en hunter para encontrar a su padre." },
-      { id: 13, title: "Blue Lock", genre: "deportes", rating: 4.5, chapters: 245, views: 7800, type: "recent", image: "images/blue lock.jpg", synopsis: "Japón crea un campo de entrenamiento para formar al mejor delantero." },
-      { id: 14, title: "Vinland Saga", genre: "seinen", rating: 4.8, chapters: 205, views: 8200, type: "top-rated", image: "images/vinland saga.jpg", synopsis: "Thorfin busca venganza y luego la verdadera libertad." },
-      { id: 15, title: "Berserk", genre: "seinen", rating: 4.9, chapters: 364, views: 13000, type: "top-rated", image: "images/berserk.jpg", synopsis: "Guts lucha contra su destino en un mundo oscuro." },
-      { id: 16, title: "Frieren", genre: "fantasía", rating: 4.7, chapters: 118, views: 7500, type: "recent", image: "images/frieren.jpg", synopsis: "Frieren emprende un viaje para comprender el significado de la vida." },
-      { id: 17, title: "Oshi no Ko", genre: "drama", rating: 4.6, chapters: 150, views: 8000, type: "recent", image: "images/oshi no ko.jpg", synopsis: "Dos hermanos reencarnan como hijos de su ídolo favorito." },
-      { id: 18, title: "Kaiju No. 8", genre: "acción", rating: 4.5, chapters: 95, views: 7200, type: "recent", image: "images/kaiju n.8.jpg", synopsis: "Kafka Hibino se transforma en un kaiju." },
-      { id: 19, title: "Dandadan", genre: "comedia", rating: 4.6, chapters: 124, views: 7000, type: "recent", image: "images/dandadan.jpg", synopsis: "Dos adolescentes se ven envueltos en una guerra entre fantasmas y aliens." },
-      { id: 20, title: "Tower of God", genre: "fantasía", rating: 4.5, chapters: 590, views: 8800, type: "popular", image: "images/tower of god.jpg", synopsis: "Bam entra a la Torre para reunirse con su amiga Rachel." },
-      { id: 21, title: "El Mago Pastor", genre: "fantasía", rating: 4.6, chapters: 1, views: 1200, type: "recent", image: "https://picsum.photos/id/1015/400/600", synopsis: "Un joven pastor descubre que posee poderes mágicos y debe proteger su aldea de fuerzas oscuras." }
-    ];
-
-    function getMangaById(id) {
-      return mangasData.find(m => m.id === parseInt(id));
+    const list = document.getElementById('list');
+    for (let i = 1; i <= 14; i++) {
+      const div = document.createElement('div');
+      div.className = 'chapter-item';
+      div.innerHTML = `<strong>Capítulo ${i}</strong>`;
+      div.onclick = () => window.location.href = `reader.html?id=21&chapter=${i}`;
+      list.appendChild(div);
     }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const mangaId = urlParams.get('id');
-
-    let currentManga;
-    let chaptersReversed = false;
-    let showAllChapters = false;
-
-    if (!mangaId || !(currentManga = getMangaById(mangaId))) {
-      document.body.innerHTML = `<h2 style="text-align:center; margin-top:150px; color:#e11d48;">Manga no encontrado</h2>`;
-    } else {
-      document.getElementById('mangaTitle').textContent = currentManga.title;
-      document.getElementById('mangaGenre').innerHTML = `<strong>Género:</strong> ${currentManga.genre.charAt(0).toUpperCase() + currentManga.genre.slice(1)}`;
-      document.getElementById('mangaRating').innerHTML = `<strong>Rating:</strong> ${currentManga.rating} ★`;
-      document.getElementById('mangaChapters').innerHTML = `<strong>Capítulos:</strong> ${currentManga.chapters}`;
-      document.getElementById('mangaViews').innerHTML = `<strong>Vistas:</strong> ${currentManga.views.toLocaleString()}`;
-      document.getElementById('mangaCover').src = currentManga.image;
-      document.getElementById('synopsisText').textContent = currentManga.synopsis;
-
-      renderChapters();
-    }
-
-    function renderChapters() {
-      const list = document.getElementById('chaptersList');
-      const btn = document.getElementById('loadMoreBtn');
-      list.innerHTML = '';
-
-      let all = Array.from({length: currentManga.chapters}, (_, i) => i + 1);
-      if (chaptersReversed) all.reverse();
-
-      const displayed = showAllChapters ? all : all.slice(0, 10);
-
-      displayed.forEach(num => {
-        const div = document.createElement('div');
-        div.className = 'chapter-item';
-        div.innerHTML = `<span><strong>Capítulo ${num}</strong></span><span>Hace ${Math.floor(Math.random()*10)+1} días</span>`;
-        div.onclick = () => window.location.href = `reader.html?id=${currentManga.id}&chapter=${num}`;
-        list.appendChild(div);
-      });
-
-      if (currentManga.chapters > 10) {
-        btn.style.display = 'block';
-        btn.textContent = showAllChapters ? 'Ver menos' : 'Ver más capítulos';
-      } else {
-        btn.style.display = 'none';
-      }
-    }
-
-    document.getElementById('toggleOrder').addEventListener('click', () => {
-      chaptersReversed = !chaptersReversed;
-      document.getElementById('orderText').textContent = chaptersReversed ? 'Del más antiguo al más reciente' : 'Del más reciente al más antiguo';
-      renderChapters();
-    });
-
-    document.getElementById('loadMoreBtn').addEventListener('click', () => {
-      showAllChapters = !showAllChapters;
-      renderChapters();
-    });
-
-    document.getElementById('btnSynopsis').addEventListener('click', () => {
-      document.getElementById('btnSynopsis').classList.add('active');
-      document.getElementById('btnChapters').classList.remove('active');
-      document.getElementById('contentSynopsis').style.display = 'block';
-      document.getElementById('contentChapters').style.display = 'none';
-    });
-
-    document.getElementById('btnChapters').addEventListener('click', () => {
-      document.getElementById('btnSynopsis').classList.remove('active');
-      document.getElementById('btnChapters').classList.add('active');
-      document.getElementById('contentSynopsis').style.display = 'none';
-      document.getElementById('contentChapters').style.display = 'block';
-    });
 
     function startReading() {
-      window.location.href = `reader.html?id=${currentManga.id}&chapter=1`;
+      window.location.href = `reader.html?id=21&chapter=1`;
     }
-
-    function updateAuthNav() {
-      const user = JSON.parse(localStorage.getItem('currentUser'));
-      const authLink = document.getElementById('auth-link');
-      if (user) {
-        authLink.outerHTML = `<a href="#" class="nav-profile" id="profileLink">${user.username || user.email} <i class="fas fa-sign-out-alt"></i></a>`;
-        document.getElementById('profileLink').onclick = (e) => {
-          e.preventDefault();
-          if (confirm('¿Cerrar sesión?')) {
-            localStorage.removeItem('currentUser');
-            location.reload();
-          }
-        };
-      }
-    }
-    window.addEventListener('load', updateAuthNav);
   </script>
 </body>
 </html>
