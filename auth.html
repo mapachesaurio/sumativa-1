@@ -3,74 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse - Iniciar Sesión / Registro</title>
+  <title>Auth - MangaVerse</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .auth-container { 
-      max-width: 420px; 
-      margin: 100px auto; 
-      background: #1e2937; 
-      border-radius: 16px; 
-      padding: 2rem; 
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); 
+    .auth-container {
+      max-width: 420px;
+      margin: 80px auto;
+      background: #1e2937;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
     }
-    .auth-tabs { 
-      display: flex; 
-      margin-bottom: 2rem; 
-      border-bottom: 2px solid #334155; 
+
+    .tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #334155;
     }
-    .auth-tab { 
-      flex: 1; 
-      padding: 1rem; 
-      text-align: center; 
-      font-weight: 600; 
-      cursor: pointer; 
-      transition: all 0.3s; 
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
     }
-    .auth-tab.active { 
-      color: #e11d48; 
-      border-bottom: 3px solid #e11d48; 
+
+    .tab.active {
+      color: white;
+      border-bottom: 3px solid #e11d48;
+      font-weight: 600;
     }
-    .auth-form { display: none; }
-    .auth-form.active { display: block; }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label { 
-      display: block; 
-      margin-bottom: 0.5rem; 
-      font-size: 0.9rem; 
-      color: #cbd5e1; 
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
     }
-    .form-group input { 
-      width: 100%; 
-      padding: 1rem; 
-      background: #0f172a; 
-      border: 1px solid #334155; 
-      border-radius: 8px; 
-      color: #e2e8f0; 
-      font-size: 1rem; 
+
+    .input-group label {
+      display: block;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
     }
-    .btn-auth { 
-      width: 100%; 
-      padding: 1rem; 
-      background: #e11d48; 
-      color: white; 
-      border: none; 
-      border-radius: 8px; 
-      font-size: 1.1rem; 
-      font-weight: bold; 
-      cursor: pointer; 
-      margin-top: 1rem; 
-      transition: all 0.3s; 
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #334155;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.05rem;
     }
-    .switch-link { 
-      text-align: center; 
-      margin-top: 1.5rem; 
-      color: #94a3b8; 
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #e11d48;
+      background: #475569;
     }
-    .switch-link a { 
-      color: #e11d48; 
-      text-decoration: none; 
+
+    .auth-btn {
+      width: 100%;
+      padding: 14px;
+      background: #e11d48;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .auth-btn:hover {
+      background: #f43f5e;
+      transform: translateY(-2px);
+    }
+
+    .switch-link {
+      margin-top: 25px;
+      color: #94a3b8;
+    }
+
+    .switch-link a {
+      color: #e11d48;
+      text-decoration: none;
+    }
+
+    .switch-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -82,53 +110,52 @@
       <div class="nav-links">
         <a href="index.html">Inicio</a>
         <a href="mangas.html">Mangas</a>
+        <a href="auth.html" class="active">Iniciar Sesión</a>
       </div>
     </nav>
   </header>
 
   <main class="main-content">
     <div class="auth-container">
-      <div class="auth-tabs">
-        <div class="auth-tab active" id="tab-login">Iniciar Sesión</div>
-        <div class="auth-tab" id="tab-register">Registrarse</div>
+      <div class="tabs">
+        <button class="tab active" id="loginTab" onclick="showTab('login')">Iniciar Sesión</button>
+        <button class="tab" id="registerTab" onclick="showTab('register')">Registrarse</button>
       </div>
 
-      <!-- Formulario de Login -->
-      <form id="loginForm" class="auth-form active">
-        <div class="form-group">
-          <label><i class="fas fa-user"></i> Correo electrónico o Nombre de usuario</label>
-          <input type="text" id="loginIdentifier" placeholder="tu@email.com o usuario123" required>
+      <!-- Login -->
+      <div id="loginForm">
+        <h2>Iniciar Sesión</h2>
+        <div class="input-group">
+          <label>Usuario</label>
+          <input type="text" id="loginUsername" placeholder="Tu usuario">
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-lock"></i> Contraseña</label>
-          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="Contraseña">
         </div>
-        <button type="submit" class="btn-auth">Iniciar Sesión</button>
-      </form>
+        <button class="auth-btn" onclick="login()">Iniciar Sesión</button>
+      </div>
 
-      <!-- Formulario de Registro -->
-      <form id="registerForm" class="auth-form">
-        <div class="form-group">
-          <label><i class="fas fa-user"></i> Nombre de usuario</label>
-          <input type="text" id="registerUsername" placeholder="Usuario123" required>
+      <!-- Registro -->
+      <div id="registerForm" style="display: none;">
+        <h2>Crear Cuenta</h2>
+        <div class="input-group">
+          <label>Usuario</label>
+          <input type="text" id="regUsername" placeholder="Elige un usuario">
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-envelope"></i> Correo electrónico</label>
-          <input type="email" id="registerEmail" placeholder="tu@email.com" required>
+        <div class="input-group">
+          <label>Correo electrónico</label>
+          <input type="email" id="regEmail" placeholder="tu@email.com">
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-lock"></i> Contraseña</label>
-          <input type="password" id="registerPassword" placeholder="••••••••" required>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" id="regPassword" placeholder="Crea una contraseña">
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-lock"></i> Confirmar contraseña</label>
-          <input type="password" id="registerConfirmPassword" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="btn-auth">Crear Cuenta</button>
-      </form>
+        <button class="auth-btn" onclick="register()">Registrarse</button>
+      </div>
 
       <div class="switch-link" id="switchText">
-        ¿No tienes cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a>
+        ¿No tienes cuenta? <a href="#" onclick="showTab('register')">Regístrate aquí</a>
       </div>
     </div>
   </main>
@@ -142,93 +169,52 @@
   </footer>
 
   <script>
-    function getUsers() { 
-      return JSON.parse(localStorage.getItem('mangaUsers')) || []; 
-    }
-    function saveUsers(users) { 
-      localStorage.setItem('mangaUsers', JSON.stringify(users)); 
-    }
-
-    // Tabs
-    document.getElementById('tab-login').addEventListener('click', () => {
-      document.getElementById('loginForm').classList.add('active');
-      document.getElementById('registerForm').classList.remove('active');
-      document.getElementById('tab-login').classList.add('active');
-      document.getElementById('tab-register').classList.remove('active');
-      document.getElementById('switchText').innerHTML = `¿No tienes cuenta? <a href="#" id="switchToRegister">Regístrate aquí</a>`;
-      attachSwitchLink();
-    });
-
-    document.getElementById('tab-register').addEventListener('click', () => {
-      document.getElementById('registerForm').classList.add('active');
-      document.getElementById('loginForm').classList.remove('active');
-      document.getElementById('tab-register').classList.add('active');
-      document.getElementById('tab-login').classList.remove('active');
-      document.getElementById('switchText').innerHTML = `¿Ya tienes cuenta? <a href="#" id="switchToLogin">Inicia sesión aquí</a>`;
-      attachSwitchLink();
-    });
-
-    function attachSwitchLink() {
-      const link = document.querySelector('#switchText a');
-      if (link) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          if (link.id === 'switchToRegister') document.getElementById('tab-register').click();
-          else document.getElementById('tab-login').click();
-        });
-      }
-    }
-
-    // Login - Ahora acepta correo O nombre de usuario
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const identifier = document.getElementById('loginIdentifier').value.trim(); // puede ser email o username
-      const password = document.getElementById('loginPassword').value;
-      const users = getUsers();
-
-      const user = users.find(u => 
-        (u.email === identifier || u.username === identifier) && 
-        u.password === password
-      );
-
-      if (user) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        alert(`✅ Bienvenido de nuevo, ${user.username || user.email}!`);
-        window.location.href = 'index.html';
+    function showTab(tab) {
+      if (tab === 'login') {
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginTab').classList.add('active');
+        document.getElementById('registerTab').classList.remove('active');
+        document.getElementById('switchText').innerHTML = `¿No tienes cuenta? <a href="#" onclick="showTab('register')">Regístrate aquí</a>`;
       } else {
-        alert('❌ Usuario, correo o contraseña incorrectos');
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('loginTab').classList.remove('active');
+        document.getElementById('registerTab').classList.add('active');
+        document.getElementById('switchText').innerHTML = `¿Ya tienes cuenta? <a href="#" onclick="showTab('login')">Inicia sesión aquí</a>`;
       }
-    });
+    }
 
-    // Register (sin cambios)
-    document.getElementById('registerForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const username = document.getElementById('registerUsername').value.trim();
-      const email = document.getElementById('registerEmail').value.trim();
-      const password = document.getElementById('registerPassword').value;
-      const confirmPassword = document.getElementById('registerConfirmPassword').value;
-
-      if (password !== confirmPassword) { 
-        alert('❌ Las contraseñas no coinciden'); 
-        return; 
+    function login() {
+      const username = document.getElementById("loginUsername").value.trim();
+      if (!username) {
+        alert("Ingresa tu usuario");
+        return;
       }
 
-      const users = getUsers();
-      if (users.some(u => u.email === email || u.username === username)) { 
-        alert('❌ Ya existe una cuenta con ese correo o nombre de usuario'); 
-        return; 
+      const savedUsername = localStorage.getItem("username");
+      if (savedUsername && savedUsername.toLowerCase() === username.toLowerCase()) {
+        localStorage.setItem("isLoggedIn", "true");
+        alert(`Bienvenido de nuevo, ${username}`);
+        window.location.href = "mangas.html";
+      } else {
+        alert("Usuario incorrecto.");
+      }
+    }
+
+    function register() {
+      const username = document.getElementById("regUsername").value.trim();
+      if (!username || username.length < 3) {
+        alert("El usuario debe tener al menos 3 caracteres");
+        return;
       }
 
-      const newUser = { username, email, password };
-      users.push(newUser);
-      saveUsers(users);
+      localStorage.setItem("username", username);
+      localStorage.setItem("isLoggedIn", "true");
 
-      alert('✅ Cuenta creada correctamente. Ahora puedes iniciar sesión.');
-      document.getElementById('tab-login').click();
-      document.getElementById('loginIdentifier').value = email || username;
-    });
-
-    attachSwitchLink();
+      alert(`¡Cuenta creada!\nUsuario: ${username}`);
+      window.location.href = "mangas.html";
+    }
   </script>
 </body>
 </html>

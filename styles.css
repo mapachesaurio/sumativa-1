@@ -1,15 +1,22 @@
+:root {
+  --primary: #e11d48;
+  --dark: #0f172a;
+  --gray: #1e2937;
+}
+
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #0a0f1c;
-  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a0f1c;
+  color: #e2e8f0;
   line-height: 1.6;
 }
 
+/* HEADER */
 header {
   background: #0f172a;
-  padding: 15px 0;
+  padding: 1rem 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -17,47 +24,52 @@ header {
 }
 
 nav {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  font-size: 28px;
-  color: #e11d48;
+  font-size: 2.2rem;
   font-weight: bold;
+  color: #e11d48;
+  text-decoration: none;
 }
+.logo span { color: #f8fafc; }
 
-.main-content {
-  margin-top: 80px;
-  padding: 20px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+.nav-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2rem;
 }
+.nav-links a:hover, .nav-links a.active { color: #e11d48; }
 
-.detail-container {
-  background: #1e2937;
-  padding: 30px;
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 30px;
-  max-width: 1000px;
-  margin: 40px auto;
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1612178537253-bccd437b730e?q=80&w=2070') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
 }
+.hero-content { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+.hero h1 { font-size: 4.5rem; margin-bottom: 1rem; background: linear-gradient(90deg, #e11d48, #f43f5e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-.chapter-item {
-  background: #0f172a;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px;
-  cursor: pointer;
-}
+/* SECTIONS */
+.features, .popular, .genres-section { padding: 100px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 3rem; color: #f8fafc; }
 
-.chapter-item:hover {
-  background: #e11d48;
-}
+.manga-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.manga-card { background: #1e2937; border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+.manga-card:hover { transform: scale(1.05); }
+.manga-card img { width: 100%; height: 320px; object-fit: cover; }
+
+.main-content { margin-top: 80px; padding: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto; }
+
+.footer { background: #020617; padding: 60px 0 30px; text-align: center; margin-top: 4rem; }

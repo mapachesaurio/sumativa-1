@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse</title>
+  <title>MangaVerse - Lee Mangas Gratis</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,14 +15,50 @@
       <div class="nav-links">
         <a href="index.html" class="active">Inicio</a>
         <a href="mangas.html">Mangas</a>
+        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
       </div>
     </nav>
   </header>
 
-  <div class="main-content">
-    <h1>Bienvenido a MangaVerse</h1>
-    <a href="mangas.html" style="display:inline-block; padding:15px 30px; background:var(--primary); color:white; text-decoration:none; border-radius:50px;">Ver Catálogo</a>
-  </div>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Lee Mangas Gratis</h1>
+      <p>La mejor plataforma para disfrutar de miles de mangas en español. Actualizaciones diarias, calidad HD y sin anuncios molestos.</p>
+      <a href="mangas.html" class="btn">Explorar Catálogo</a>
+    </div>
+  </section>
 
+  <section class="popular">
+    <div class="container">
+      <h2 class="section-title">Mangas Populares</h2>
+      <div id="popularGrid" class="manga-grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <h2>MangaVerse</h2>
+      <p>Tu plataforma favorita para leer mangas online gratis.</p>
+      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadPopular() {
+      const res = await fetch('data/mangas.json');
+      const data = await res.json();
+      const grid = document.getElementById('popularGrid');
+      grid.innerHTML = data.mangas.map(m => `
+        <div class="manga-card" onclick="location.href='manga-detail.html?id=${m.id}'">
+          <img src="${m.image}" alt="${m.title}">
+          <div class="manga-info">
+            <h3>${m.title}</h3>
+            <p>${m.genre}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+    window.onload = loadPopular;
+  </script>
 </body>
 </html>
