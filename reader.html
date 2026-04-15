@@ -4,106 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lector - MangaVerse</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .reader-main { margin-top: 70px; padding: 10px; }
-    .page-container { 
-      max-width: 720px; 
-      margin: 0 auto; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-    }
-    .page-container img { 
-      width: 100%; 
-      max-width: 720px; 
-      height: auto; 
-      display: block; 
-      margin-bottom: 12px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    }
-  </style>
 </head>
 <body>
-
-  <div style="position:fixed; top:0; left:0; right:0; background:#0f172a; padding:12px; z-index:1000; display:flex; justify-content:space-between; align-items:center; color:white;">
-    <button onclick="goBack()" style="background:none; border:none; color:white; font-size:1.5rem;"><i class="fas fa-arrow-left"></i></button>
-    
-    <div style="text-align:center;">
-      <h2 id="mangaTitle" style="margin:0; font-size:1.4rem;"></h2>
-      <p id="chapterInfo" style="margin:4px 0 0; color:#94a3b8;"></p>
-    </div>
-
+  <header style="background:#1e293b; color:white; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+    <button onclick="goBack()">← Volver</button>
     <div>
-      <button onclick="prevChapter()" style="margin-right:15px;">◀ Cap. anterior</button>
+      <h2 id="mangaTitle"></h2>
+      <p id="chapterInfo"></p>
+    </div>
+    <div>
+      <button onclick="prevChapter()">◀ Cap. anterior</button>
       <button onclick="nextChapter()">Cap. siguiente ▶</button>
     </div>
-  </div>
+  </header>
 
-  <div class="reader-main">
+  <main class="reader-main">
     <div id="pages" class="page-container"></div>
-  </div>
+  </main>
 
+  <script src="data/mangas.js"></script>
   <script>
     let currentManga = null;
     let currentChapter = 1;
 
-    async function loadChapter() {
+    function loadChapter() {
       const params = new URLSearchParams(window.location.search);
-      const id = params.get('id');
-      currentChapter = parseInt(params.get('chapter')) || 1;
+      const id = parseInt(params.get("id"));
+      currentChapter = parseInt(params.get("chapter")) || 1;
 
-      // Datos hardcodeados temporalmente para que funcione
-      currentManga = {
-        id: 21,
-        title: "El Mago Pastor",
-        chapters_count: 14,
-        folder: "El_Mago_Pastor"
-      };
+      currentManga = mangasData.mangas.find(m => m.id === id);
 
-      document.getElementById('mangaTitle').textContent = currentManga.title;
-      document.getElementById('chapterInfo').textContent = `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
+      document.getElementById("mangaTitle").textContent = currentManga.title;
+      document.getElementById("chapterInfo").textContent =
+        `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
 
-      const container = document.getElementById('pages');
-      container.innerHTML = '';
+      const container = document.getElementById("pages");
+      container.innerHTML = "";
 
+      // Carpeta con formato Cap_001, Cap_002, etc.
       const folder = `mangas/${currentManga.folder}/Cap_${String(currentChapter).padStart(3, '0')}`;
 
-      let foundImages = 0;
+      let foundAny = false;
+      let pageNum = 1;
 
-      for (let i = 1; i <= 200; i++) {
-        const img = document.createElement('img');
-        img.src = `${folder}/${String(i).padStart(3, '0')}.jpg`;
+      // Cargar páginas hasta que ya no existan más
+      function tryLoadPage(num) {
+        const img = document.createElement("img");
+        img.src = `${folder}/${num}.jpg`;
         img.loading = "lazy";
 
-        img.onload = () => foundImages++;
         img.onerror = () => {
-          if (i === 1) {
-            container.innerHTML = `<p style="color:#ef4444; padding:60px; font-size:1.2rem;">No se encontraron imágenes para el Capítulo ${currentChapter}</p>`;
+          if (!foundAny && num === 1) {
+            container.innerHTML =
+              `<p style="color:#f43f5e; padding:60px; text-align:center;">
+                 No se encontraron imágenes para el Capítulo ${currentChapter}
+               </p>`;
           }
+          // detener aquí: no hay más páginas
+        };
+
+        img.onload = () => {
+          foundAny = true;
+          tryLoadPage(num + 1); // cargar la siguiente página
         };
 
         container.appendChild(img);
       }
+
+      // Iniciar con la primera página
+      tryLoadPage(pageNum);
     }
 
     function nextChapter() {
-      if (currentChapter < 14) {
-        currentChapter++;
-        window.location.href = `reader.html?id=21&chapter=${currentChapter}`;
+      if (currentChapter < currentManga.chapters_count) {
+        window.location.href =
+          `reader.html?id=${currentManga.id}&chapter=${currentChapter + 1}`;
       }
     }
 
     function prevChapter() {
       if (currentChapter > 1) {
-        currentChapter--;
-        window.location.href = `reader.html?id=21&chapter=${currentChapter}`;
+        window.location.href =
+          `reader.html?id=${currentManga.id}&chapter=${currentChapter - 1}`;
       }
     }
 
     function goBack() {
-      window.location.href = `manga-detail.html?id=21`;
+      window.location.href = `manga-detail.html?id=${currentManga.id}`;
     }
 
     window.onload = loadChapter;

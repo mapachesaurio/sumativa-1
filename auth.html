@@ -187,23 +187,26 @@
 
     function login() {
       const username = document.getElementById("loginUsername").value.trim();
+
       if (!username) {
         alert("Ingresa tu usuario");
         return;
       }
 
       const savedUsername = localStorage.getItem("username");
+
       if (savedUsername && savedUsername.toLowerCase() === username.toLowerCase()) {
         localStorage.setItem("isLoggedIn", "true");
         alert(`Bienvenido de nuevo, ${username}`);
         window.location.href = "mangas.html";
       } else {
-        alert("Usuario incorrecto.");
+        alert("Usuario incorrecto.\nPrimero regístrate si no tienes cuenta.");
       }
     }
 
     function register() {
       const username = document.getElementById("regUsername").value.trim();
+
       if (!username || username.length < 3) {
         alert("El usuario debe tener al menos 3 caracteres");
         return;
@@ -212,9 +215,12 @@
       localStorage.setItem("username", username);
       localStorage.setItem("isLoggedIn", "true");
 
-      alert(`¡Cuenta creada!\nUsuario: ${username}`);
+      alert(`¡Cuenta creada exitosamente!\nUsuario: ${username}`);
       window.location.href = "mangas.html";
     }
+
+    // Solo redirige si estás en mangas.html y quieres forzar login, pero NO en auth.html
+    // (ya no redirige automáticamente aquí)
   </script>
 </body>
 </html>

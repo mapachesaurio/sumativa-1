@@ -4,203 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MangaVerse - Catálogo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .page-header { text-align: center; margin-bottom: 3rem; }
-    .page-header h1 { font-size: 2.8rem; color: #f8fafc; }
-    .page-header p { color: #94a3b8; font-size: 1.1rem; }
-
-    .search-section { text-align: center; margin-bottom: 2.5rem; }
-    .search-box input {
-      width: 100%; max-width: 580px; padding: 15px 24px;
-      background: #1e2937; border: none; border-radius: 50px;
-      color: white; font-size: 1.05rem;
-    }
-
-    .filters, .genres {
-      display: flex; justify-content: center; flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .filter-btn, .genre-tag {
-      padding: 10px 24px; border-radius: 50px;
-      background: #1e2937; color: #cbd5e1; border: none;
-      cursor: pointer; transition: all 0.3s;
-    }
-
-    .filter-btn.active, .genre-tag.active,
-    .filter-btn:hover, .genre-tag:hover {
-      background: #e11d48; color: white;
-    }
-
-    .results-count { text-align: center; color: #94a3b8; margin-bottom: 2rem; }
-
-    .manga-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
-      gap: 1.6rem;
-    }
-
-    .manga-card {
-      background: #1e2937; border-radius: 12px; overflow: hidden;
-      transition: all 0.3s; border: 1px solid #334155;
-    }
-
-    .manga-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.4);
-      border-color: #e11d48;
-    }
-
-    .manga-card img { width: 100%; height: 265px; object-fit: cover; }
-
-    .manga-info { padding: 14px; }
-    .manga-info h3 { font-size: 1.05rem; margin-bottom: 6px; }
-    .manga-info .genre { font-size: 0.9rem; color: #94a3b8; margin-bottom: 4px; }
-    .manga-info .rating { color: #fbbf24; font-size: 0.95rem; }
-    .manga-info .chapters { font-size: 0.85rem; color: #94a3b8; }
-  </style>
 </head>
 <body>
-
   <header>
     <nav>
       <a href="index.html" class="logo">Manga<span>Verse</span></a>
       <div class="nav-links">
         <a href="index.html">Inicio</a>
         <a href="mangas.html" class="active">Mangas</a>
-        <a href="#" id="auth-link" onclick="handleAuthClick()">Iniciar Sesión</a>
+        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
       </div>
     </nav>
   </header>
 
   <main class="main-content">
-    <div class="page-header">
-      <h1>Catálogo de Mangas</h1>
-      <p>Descubre miles de mangas y manhwas en español</p>
-    </div>
+  <h1>Catálogo de Mangas</h1>
+  <input type="text" id="searchInput" placeholder="Buscar manga por título...">
 
-    <div class="search-section">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Buscar manga por título...">
-      </div>
+  <div class="filters">
+    <button class="active" onclick="applyFilter('all')">Todos</button>
+    <button onclick="applyFilter('popular')">Más Populares</button>
+    <button onclick="applyFilter('recent')">Recientes</button>
+    <button onclick="applyFilter('rating')">Mejor Valorados</button>
+  </div>
 
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="popular">Más Populares</button>
-        <button class="filter-btn" data-filter="recent">Recientes</button>
-        <button class="filter-btn" data-filter="top-rated">Mejor Valorados</button>
-      </div>
+  <div id="resultsCount"></div>
+  <div id="mangaGrid" class="manga-grid"></div>
+</main>
 
-      <div class="genres" id="genreFilters"></div>
-    </div>
-
-    <div class="results-count" id="resultsCount"></div>
-    <div id="mangaGrid" class="manga-grid"></div>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <h2>MangaVerse</h2>
-      <p>Tu plataforma favorita para leer mangas online gratis.</p>
-      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
+  <script src="data/mangas.js"></script>
   <script>
-    const mangasData = [ /* ... todos tus mangas aquí (los mismos que antes) ... */ 
-      { id: 1, title: "Solo Leveling", genre: "acción", rating: 4.8, chapters: 179, views: 15000, type: "popular", image: "images/solo leveling.jpg" },
-      { id: 2, title: "Jujutsu Kaisen", genre: "acción", rating: 4.7, chapters: 245, views: 12000, type: "popular", image: "images/jujutsu.jpg" },
-      { id: 3, title: "One Piece", genre: "aventura", rating: 4.9, chapters: 1090, views: 25000, type: "popular", image: "images/one piece.jpg" },
-      { id: 4, title: "Chainsaw Man", genre: "acción", rating: 4.6, chapters: 167, views: 9800, type: "popular", image: "images/csm.jpg" },
-      { id: 5, title: "Demon Slayer", genre: "acción", rating: 4.7, chapters: 205, views: 11000, type: "top-rated", image: "images/demon slayer.jpg" },
-      { id: 6, title: "My Hero Academia", genre: "shonen", rating: 4.5, chapters: 390, views: 10500, type: "popular", image: "images/my hero academia.jpg" },
-      { id: 7, title: "Attack on Titan", genre: "drama", rating: 4.9, chapters: 139, views: 20000, type: "top-rated", image: "images/snk.jpg" },
-      { id: 8, title: "Naruto", genre: "aventura", rating: 4.8, chapters: 700, views: 18000, type: "popular", image: "images/naruto.jpg" },
-      { id: 9, title: "Tokyo Revengers", genre: "drama", rating: 4.4, chapters: 278, views: 8500, type: "recent", image: "images/tokyo revengers.jpg" },
-      { id: 10, title: "Spy x Family", genre: "comedia", rating: 4.7, chapters: 89, views: 9200, type: "recent", image: "images/spy x famili.jpg" },
-      { id: 11, title: "One Punch Man", genre: "comedia", rating: 4.6, chapters: 190, views: 9500, type: "popular", image: "images/opm.jpg" },
-      { id: 12, title: "Hunter x Hunter", genre: "aventura", rating: 4.8, chapters: 400, views: 10200, type: "top-rated", image: "images/hxh.jpg" },
-      { id: 13, title: "Blue Lock", genre: "deportes", rating: 4.5, chapters: 245, views: 7800, type: "recent", image: "images/blue lock.jpg" },
-      { id: 14, title: "Vinland Saga", genre: "seinen", rating: 4.8, chapters: 205, views: 8200, type: "top-rated", image: "images/vinland saga.jpg" },
-      { id: 15, title: "Berserk", genre: "seinen", rating: 4.9, chapters: 364, views: 13000, type: "top-rated", image: "images/berserk.jpg" },
-      { id: 16, title: "Frieren", genre: "fantasía", rating: 4.7, chapters: 118, views: 7500, type: "recent", image: "images/frieren.jpg" },
-      { id: 17, title: "Oshi no Ko", genre: "drama", rating: 4.6, chapters: 150, views: 8000, type: "recent", image: "images/oshi no ko.jpg" },
-      { id: 18, title: "Kaiju No. 8", genre: "acción", rating: 4.5, chapters: 95, views: 7200, type: "recent", image: "images/kaiju n.8.jpg" },
-      { id: 19, title: "Dandadan", genre: "comedia", rating: 4.6, chapters: 124, views: 7000, type: "recent", image: "images/dandadan.jpg" },
-      { id: 20, title: "Tower of God", genre: "fantasía", rating: 4.5, chapters: 590, views: 8800, type: "popular", image: "images/tower of god.jpg" },
-      { id: 21, title: "El Mago Pastor", genre: "fantasía", rating: 4.6, chapters: 14, views: 1200, type: "recent", image: "images/mago-pastor.jpg" }
-    ];
-
     let currentSearch = "";
+    let currentFilter = "all";
 
-    const mangaGrid = document.getElementById("mangaGrid");
-    const resultsCount = document.getElementById("resultsCount");
-    const searchInput = document.getElementById("searchInput");
+    function applyFilter(type) {
+      currentFilter = type;
+      document.querySelectorAll(".filters button").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+      renderMangas();
+    }
 
     function renderMangas() {
-      let filtered = mangasData;
+      let filtered = mangasData.mangas;
+
       if (currentSearch) {
-        filtered = mangasData.filter(m => m.title.toLowerCase().includes(currentSearch.toLowerCase()));
+        filtered = filtered.filter(m => m.title.toLowerCase().includes(currentSearch.toLowerCase()));
       }
-      resultsCount.textContent = `Mostrando ${filtered.length} mangas`;
-      mangaGrid.innerHTML = filtered.map(m => `
+
+      if (currentFilter === "popular") {
+        filtered = filtered.sort((a,b) => b.chapters_count - a.chapters_count);
+      } else if (currentFilter === "recent") {
+        filtered = filtered.sort((a,b) => b.id - a.id);
+      } else if (currentFilter === "rating") {
+        filtered = filtered.sort((a,b) => b.rating - a.rating);
+      }
+
+      document.getElementById("resultsCount").textContent = `Mostrando ${filtered.length} mangas`;
+
+      const grid = document.getElementById("mangaGrid");
+      grid.innerHTML = filtered.map(m => `
         <div class="manga-card" onclick="window.location.href = 'manga-detail.html?id=${m.id}'">
-          <img src="${m.image}" alt="${m.title}">
+          <img src="${m.cover}" alt="${m.title}">
           <div class="manga-info">
             <h3>${m.title}</h3>
             <div class="genre">${m.genre}</div>
             <div class="rating">★ ${m.rating}</div>
-            <div class="chapters">${m.chapters} capítulos</div>
+            <div class="chapters">${m.chapters_count} capítulos</div>
           </div>
         </div>
       `).join('');
     }
 
-    searchInput.addEventListener("input", (e) => {
+    document.getElementById("searchInput").addEventListener("input", (e) => {
       currentSearch = e.target.value;
       renderMangas();
     });
 
-    // === AUTH LINK ===
-    function updateAuthLink() {
-      const authLink = document.getElementById("auth-link");
-      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-      const username = localStorage.getItem("username");
-
-      if (isLoggedIn && username) {
-        authLink.textContent = username;
-        authLink.style.color = "#e11d48";
-        authLink.style.fontWeight = "600";
-      } else {
-        authLink.textContent = "Iniciar Sesión";
-        authLink.style.color = "";
-        authLink.style.fontWeight = "";
-      }
-    }
-
-    function handleAuthClick() {
-      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-      if (isLoggedIn) {
-        if (confirm("¿Quieres cerrar sesión?")) {
-          localStorage.removeItem("isLoggedIn");
-          localStorage.removeItem("username");
-          alert("Sesión cerrada");
-          window.location.reload();
-        }
-      } else {
-        window.location.href = "auth.html";
-      }
-    }
-
-    // Inicializar
-    window.onload = () => {
-      renderMangas();
-      updateAuthLink();
-    };
+    window.onload = renderMangas;
   </script>
 </body>
 </html>

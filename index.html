@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse - Lee Mangas Gratis</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <title>MangaVerse - Inicio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <header>
     <nav>
       <a href="index.html" class="logo">Manga<span>Verse</span></a>
@@ -21,44 +19,9 @@
   </header>
 
   <section class="hero">
-    <div class="hero-content">
-      <h1>Lee Mangas Gratis</h1>
-      <p>La mejor plataforma para disfrutar de miles de mangas en español. Actualizaciones diarias, calidad HD y sin anuncios molestos.</p>
-      <a href="mangas.html" class="btn">Explorar Catálogo</a>
-    </div>
+    <h1>Descubre miles de mangas y manhwas</h1>
+    <p>Explora tu catálogo favorito en español con una experiencia moderna y oscura.</p>
+    <button class="btn" onclick="window.location.href='mangas.html'">Ver Catálogo</button>
   </section>
-
-  <section class="popular">
-    <div class="container">
-      <h2 class="section-title">Mangas Populares</h2>
-      <div id="popularGrid" class="manga-grid"></div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <h2>MangaVerse</h2>
-      <p>Tu plataforma favorita para leer mangas online gratis.</p>
-      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
-    async function loadPopular() {
-      const res = await fetch('data/mangas.json');
-      const data = await res.json();
-      const grid = document.getElementById('popularGrid');
-      grid.innerHTML = data.mangas.map(m => `
-        <div class="manga-card" onclick="location.href='manga-detail.html?id=${m.id}'">
-          <img src="${m.image}" alt="${m.title}">
-          <div class="manga-info">
-            <h3>${m.title}</h3>
-            <p>${m.genre}</p>
-          </div>
-        </div>
-      `).join('');
-    }
-    window.onload = loadPopular;
-  </script>
 </body>
 </html>
