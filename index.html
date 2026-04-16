@@ -3,25 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse - Inicio</title>
+  <title>MangaVerse - Lee Mangas Gratis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Navbar -->
   <header>
     <nav>
-      <a href="index.html" class="logo">Manga<span>Verse</span></a>
+      <a href="#" class="logo">Manga<span>Verse</span></a>
       <div class="nav-links">
         <a href="index.html" class="active">Inicio</a>
         <a href="mangas.html">Mangas</a>
-        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
+        <a href="#">Géneros</a>
+        <a href="#">Popular</a>
+        <a href="#">Comunidad</a>
       </div>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Descubre miles de mangas y manhwas</h1>
-    <p>Explora tu catálogo favorito en español con una experiencia moderna y oscura.</p>
-    <button class="btn" onclick="window.location.href='mangas.html'">Ver Catálogo</button>
+    <div class="hero-content">
+      <h1>Lee Mangas Gratis</h1>
+      <p>La mejor plataforma para disfrutar de miles de mangas en español. Actualizaciones diarias, calidad HD y sin anuncios molestos.</p>
+      <a href="reader.html?id=21&chapter=1" class="btn">Empezar a Leer Ahora</a>
+      <a href="mangas.html" class="btn btn-secondary">Explorar Catálogo</a>
+    </div>
   </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">¿Por qué elegir MangaVerse?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-bolt"></i>
+          <h3>Actualizaciones Diarias</h3>
+          <p>Nuevos capítulos todos los días de tus mangas favoritos.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-book-open"></i>
+          <h3>Miles de Títulos</h3>
+          <p>Más de 10.000 mangas y manhwas disponibles en español.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Lee en Cualquier Dispositivo</h3>
+          <p>Optimizado para celular, tablet y computadora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mangas Populares -->
+  <section class="popular">
+    <div class="container">
+      <h2 class="section-title">Mangas Populares</h2>
+      <div class="manga-grid">
+        <div class="manga-card">
+          <img src="images/solo leveling.jpg" alt="Solo Leveling">
+          <div class="manga-info">
+            <h3>Solo Leveling</h3>
+            <p>Acción • Fantasía</p>
+          </div>
+        </div>
+        <div class="manga-card">
+          <img src="images/jujutsu.jpg" alt="Jujutsu Kaisen">
+          <div class="manga-info">
+            <h3>Jujutsu Kaisen</h3>
+            <p>Acción • Sobrenatural</p>
+          </div>
+        </div>
+        <div class="manga-card">
+          <img src="images/one piece.jpg" alt="One Piece">
+          <div class="manga-info">
+            <h3>One Piece</h3>
+            <p>Aventura • Shonen</p>
+          </div>
+        </div>
+        <div class="manga-card">
+          <img src="images/csm.jpg" alt="Chainsaw Man">
+          <div class="manga-info">
+            <h3>Chainsaw Man</h3>
+            <p>Acción • Oscuro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h2>MangaVerse</h2>
+      <p>Tu plataforma favorita para leer mangas online gratis.</p>
+      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
 </body>
 </html>

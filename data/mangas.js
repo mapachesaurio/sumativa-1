@@ -1,7 +1,7 @@
 const mangasData = {
   mangas: [
     {
-      id: 21,
+      id: 1,
       title: "El Mago Pastor",
       genre: "fantasía",
       rating: 4.6,

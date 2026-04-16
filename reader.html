@@ -7,94 +7,116 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header style="background:#1e293b; color:white; padding:12px; display:flex; justify-content:space-between; align-items:center;">
-    <button onclick="goBack()">← Volver</button>
-    <div>
-      <h2 id="mangaTitle"></h2>
-      <p id="chapterInfo"></p>
+  <header id="readerHeader">
+    <div class="reader-top-nav">
+        <a href="index.html" class="logo">Manga<span>Verse</span></a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="mangas.html" class="active">Mangas</a>
+            <a href="auth.html">Iniciar Sesión</a>
+        </div>
     </div>
-    <div>
-      <button onclick="prevChapter()">◀ Cap. anterior</button>
-      <button onclick="nextChapter()">Cap. siguiente ▶</button>
+
+    <div class="reader-controls">
+        <button onclick="goBack()">← Volver</button>
+        <div>
+            <h2 id="mangaTitle"></h2>
+            <p id="chapterInfo"></p>
+        </div>
+        <div>
+            <button onclick="prevChapter()">◀ Cap. anterior</button>
+            <button onclick="nextChapter()">Cap. siguiente ▶</button>
+        </div>
     </div>
-  </header>
+</header>
 
   <main class="reader-main">
     <div id="pages" class="page-container"></div>
   </main>
 
   <script src="data/mangas.js"></script>
-  <script>
+<script>
     let currentManga = null;
     let currentChapter = 1;
+    let lastScrollTop = 0;
 
     function loadChapter() {
-      const params = new URLSearchParams(window.location.search);
-      const id = parseInt(params.get("id"));
-      currentChapter = parseInt(params.get("chapter")) || 1;
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get("id"));
+        currentChapter = parseInt(params.get("chapter")) || 1;
 
-      currentManga = mangasData.mangas.find(m => m.id === id);
+        currentManga = mangasData.mangas.find(m => m.id === id);
 
-      document.getElementById("mangaTitle").textContent = currentManga.title;
-      document.getElementById("chapterInfo").textContent =
-        `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
+        document.getElementById("mangaTitle").textContent = currentManga.title;
+        document.getElementById("chapterInfo").textContent =
+            `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
 
-      const container = document.getElementById("pages");
-      container.innerHTML = "";
+        const container = document.getElementById("pages");
+        container.innerHTML = "";
 
-      // Carpeta con formato Cap_001, Cap_002, etc.
-      const folder = `mangas/${currentManga.folder}/Cap_${String(currentChapter).padStart(3, '0')}`;
+        const folder = `mangas/${currentManga.folder}/Cap_${String(currentChapter).padStart(3, '0')}`;
 
-      let foundAny = false;
-      let pageNum = 1;
+        let foundAny = false;
+        let pageNum = 1;
 
-      // Cargar páginas hasta que ya no existan más
-      function tryLoadPage(num) {
-        const img = document.createElement("img");
-        img.src = `${folder}/${num}.jpg`;
-        img.loading = "lazy";
+        function tryLoadPage(num) {
+            const img = document.createElement("img");
+            img.src = `${folder}/${num}.jpg`;
+            img.loading = "lazy";
 
-        img.onerror = () => {
-          if (!foundAny && num === 1) {
-            container.innerHTML =
-              `<p style="color:#f43f5e; padding:60px; text-align:center;">
-                 No se encontraron imágenes para el Capítulo ${currentChapter}
-               </p>`;
-          }
-          // detener aquí: no hay más páginas
-        };
+            img.onerror = () => {
+                if (!foundAny && num === 1) {
+                    container.innerHTML = `<p style="color:#f43f5e; padding:60px; text-align:center;">
+                        No se encontraron imágenes para el Capítulo ${currentChapter}
+                    </p>`;
+                }
+            };
 
-        img.onload = () => {
-          foundAny = true;
-          tryLoadPage(num + 1); // cargar la siguiente página
-        };
+            img.onload = () => {
+                foundAny = true;
+                tryLoadPage(num + 1);
+            };
 
-        container.appendChild(img);
-      }
+            container.appendChild(img);
+        }
 
-      // Iniciar con la primera página
-      tryLoadPage(pageNum);
+        tryLoadPage(pageNum);
+    }
+
+    // === Ocultar nav al hacer scroll hacia abajo ===
+    function handleScroll() {
+        const header = document.querySelector("header");
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (st > lastScrollTop && st > 100) {        // scroll hacia abajo
+            header.classList.add("hidden");
+        } else {                                     // scroll hacia arriba
+            header.classList.remove("hidden");
+        }
+
+        lastScrollTop = st <= 0 ? 0 : st;
     }
 
     function nextChapter() {
-      if (currentChapter < currentManga.chapters_count) {
-        window.location.href =
-          `reader.html?id=${currentManga.id}&chapter=${currentChapter + 1}`;
-      }
+        if (currentChapter < currentManga.chapters_count) {
+            window.location.href = `reader.html?id=${currentManga.id}&chapter=${currentChapter + 1}`;
+        }
     }
 
     function prevChapter() {
-      if (currentChapter > 1) {
-        window.location.href =
-          `reader.html?id=${currentManga.id}&chapter=${currentChapter - 1}`;
-      }
+        if (currentChapter > 1) {
+            window.location.href = `reader.html?id=${currentManga.id}&chapter=${currentChapter - 1}`;
+        }
     }
 
     function goBack() {
-      window.location.href = `manga-detail.html?id=${currentManga.id}`;
+        window.location.href = `manga-detail.html?id=${currentManga.id}`;
     }
 
-    window.onload = loadChapter;
-  </script>
+    window.onload = () => {
+        loadChapter();
+        window.addEventListener("scroll", handleScroll);
+    };
+</script>
 </body>
 </html>
