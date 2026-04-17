@@ -41,47 +41,39 @@
     let lastScrollTop = 0;
 
     function loadChapter() {
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get("id"));
-        currentChapter = parseInt(params.get("chapter")) || 1;
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+      currentChapter = parseInt(params.get("chapter")) || 1;
 
-        currentManga = mangasData.mangas.find(m => m.id === id);
+      currentManga = mangasData.mangas.find(m => m.id === id);
 
-        document.getElementById("mangaTitle").textContent = currentManga.title;
-        document.getElementById("chapterInfo").textContent =
-            `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
+      document.getElementById("mangaTitle").textContent = currentManga.title;
+      document.getElementById("chapterInfo").textContent =
+          `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
 
-        const container = document.getElementById("pages");
-        container.innerHTML = "";
+      const container = document.getElementById("pages");
+      container.innerHTML = "";
 
-        const folder = `mangas/${currentManga.folder}/Cap_${String(currentChapter).padStart(3, '0')}`;
+      // Cargar páginas desde el array chapters en mangas.js
+      const pages = currentManga.chapters[currentChapter] || [];
 
-        let foundAny = false;
-        let pageNum = 1;
+      if (pages.length === 0) {
+          container.innerHTML = `<p style="color:#f43f5e; padding:60px; text-align:center;">
+              No se encontraron imágenes para el Capítulo ${currentChapter}
+          </p>`;
+          return;
+      }
 
-        function tryLoadPage(num) {
-            const img = document.createElement("img");
-            img.src = `${folder}/${num}.jpg`;
-            img.loading = "lazy";
-
-            img.onerror = () => {
-                if (!foundAny && num === 1) {
-                    container.innerHTML = `<p style="color:#f43f5e; padding:60px; text-align:center;">
-                        No se encontraron imágenes para el Capítulo ${currentChapter}
-                    </p>`;
-                }
-            };
-
-            img.onload = () => {
-                foundAny = true;
-                tryLoadPage(num + 1);
-            };
-
-            container.appendChild(img);
-        }
-
-        tryLoadPage(pageNum);
-    }
+      pages.forEach(src => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.loading = "lazy";
+          img.style.maxWidth = "100%";
+          img.style.display = "block";
+          img.style.margin = "0 auto 10px";
+          container.appendChild(img);
+      });
+  }
 
     // === Ocultar nav al hacer scroll hacia abajo ===
     function handleScroll() {
