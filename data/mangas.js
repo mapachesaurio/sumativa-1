@@ -811,6 +811,18 @@ const mangasData = {
           "https://i.ibb.co/9mf6HNq1/75.webp"
         ]
       }
+    },
+    {
+      id: 2,
+      title: "kimetsu no yaiba",
+      genre: "Acción, aventura, comedia, drama, fantasía oscura, histórico, sobrenatural",
+      rating: 4.5,
+      chapters_count: 15,
+      cover: "https://i.ibb.co/Fk29zgdt/kimetsu.webp",   // ← Link directo correcto
+      synopsis: "Allí se encontraba un pastor aparentemente corriente llamado Turan, procedente de la colina de Hisaril. Tras haber vivido ocultando su talento como gran archimago, finalmente sale al mundo.",
+      chapters: {
+        1:[]
+      }
     }
   ]
 };
