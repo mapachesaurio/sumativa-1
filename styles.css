@@ -500,5 +500,5 @@ header button:hover {
 
 /* Ocultar header al scrollear */
 #readerHeader.hidden {
-    top: -180px !important;
+    top: -300px !important;
 }
