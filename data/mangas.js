@@ -1759,7 +1759,7 @@ const mangasData = {
         26:[
 
         ],
-        "27": [
+        27: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/JwXNRD6C/2.webp",
           "https://i.ibb.co/0yhTqMbj/3.webp",
@@ -1819,7 +1819,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
-        "28": [
+        28: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/M43w5TM/2.webp",
           "https://i.ibb.co/0yhTqMbj/3.webp",
@@ -1872,7 +1872,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
-        "29": [
+        29: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/XrqSPLds/2.webp",
           "https://i.ibb.co/0yhTqMbj/3.webp",
@@ -1933,7 +1933,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
-        "30": [
+        30: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/b503JsGT/2.webp",
           "https://i.ibb.co/0yhTqMbj/3.webp",
