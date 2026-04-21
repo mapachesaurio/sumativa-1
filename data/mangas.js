@@ -859,7 +859,23 @@ const mangasData = {
           "https://i.ibb.co/V0q4Lq2S/47.webp",
           "https://i.ibb.co/RpZB0jh9/48.webp",
           "https://i.ibb.co/5h8ZL1xr/49.webp",
-          "https://i.ibb.co/VchfMSJd/50.webp"
+          "https://i.ibb.co/VchfMSJd/50.webp",
+          "https://i.ibb.co/jZkjJ0Gg/51.webp",
+          "https://i.ibb.co/YBVztC0d/52.webp",
+          "https://i.ibb.co/H6Qhv58/53.webp",
+          "https://i.ibb.co/MxVSTvTN/54.webp",
+          "https://i.ibb.co/HLfzZK9L/55.webp",
+          "https://i.ibb.co/jZxQrFY0/56.webp",
+          "https://i.ibb.co/jkfNndVk/57.webp",
+          "https://i.ibb.co/gb7ZccDv/58.webp",
+          "https://i.ibb.co/5WzqwjNK/59.webp",
+          "https://i.ibb.co/Jwtb7YNn/60.webp",
+          "https://i.ibb.co/99cqB5zv/61.webp",
+          "https://i.ibb.co/vx9wJ0t6/62.webp",
+          "https://i.ibb.co/KzbKffWX/63.webp",
+          "https://i.ibb.co/svtT8MP6/64.webp",
+          "https://i.ibb.co/DD3x6KKD/65.webp",
+          "https://i.ibb.co/67YpD5MD/66.webp"
         ]
       }
     },
