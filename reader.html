@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lector - MangaVerse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="readerHeader">
+    <div class="reader-top-nav">
+        <a href="index.html" class="logo">Manga<span>Verse</span></a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="mangas.html" class="active">Mangas</a>
+            <a href="auth.html">Iniciar Sesión</a>
+        </div>
+    </div>
+
+    <div class="reader-controls">
+        <button onclick="goBack()">← Volver</button>
+        <div>
+            <h2 id="mangaTitle"></h2>
+            <p id="chapterInfo"></p>
+        </div>
+        <div>
+            <button onclick="prevChapter()">◀ Cap. anterior</button>
+            <button onclick="nextChapter()">Cap. siguiente ▶</button>
+        </div>
+    </div>
+</header>
+
+  <main class="reader-main">
+    <div id="pages" class="page-container"></div>
+  </main>
+
+  <script src="data/mangas.js"></script>
+<script>
+    let currentManga = null;
+    let currentChapter = 1;
+    let lastScrollTop = 0;
+
+    function loadChapter() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+      currentChapter = parseInt(params.get("chapter")) || 1;
+
+      currentManga = mangasData.mangas.find(m => m.id === id);
+
+      document.getElementById("mangaTitle").textContent = currentManga.title;
+      document.getElementById("chapterInfo").textContent =
+          `Capítulo ${currentChapter} de ${currentManga.chapters_count}`;
+
+      const container = document.getElementById("pages");
+      container.innerHTML = "";
+
+      // Cargar páginas desde el array chapters en mangas.js
+      const pages = currentManga.chapters[currentChapter] || [];
+
+      if (pages.length === 0) {
+          container.innerHTML = `<p style="color:#f43f5e; padding:60px; text-align:center;">
+              No se encontraron imágenes para el Capítulo ${currentChapter}
+          </p>`;
+          return;
+      }
+
+      pages.forEach(src => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.loading = "lazy";
+          img.style.maxWidth = "100%";
+          img.style.display = "block";
+          img.style.margin = "0 auto 10px";
+          container.appendChild(img);
+      });
+  }
+
+    // === Ocultar nav al hacer scroll hacia abajo ===
+    function handleScroll() {
+        const header = document.querySelector("header");
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (st > lastScrollTop && st > 100) {        // scroll hacia abajo
+            header.classList.add("hidden");
+        } else {                                     // scroll hacia arriba
+            header.classList.remove("hidden");
+        }
+
+        lastScrollTop = st <= 0 ? 0 : st;
+    }
+
+    function nextChapter() {
+        if (currentChapter < currentManga.chapters_count) {
+            window.location.href = `reader.html?id=${currentManga.id}&chapter=${currentChapter + 1}`;
+        }
+    }
+
+    function prevChapter() {
+        if (currentChapter > 1) {
+            window.location.href = `reader.html?id=${currentManga.id}&chapter=${currentChapter - 1}`;
+        }
+    }
+
+    function goBack() {
+        window.location.href = `manga-detail.html?id=${currentManga.id}`;
+    }
+
+    window.onload = () => {
+        loadChapter();
+        window.addEventListener("scroll", handleScroll);
+    };
+</script>
+</body>
+</html>
