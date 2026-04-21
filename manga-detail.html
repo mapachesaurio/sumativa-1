@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manga - Detalle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <a href="index.html" class="logo">Manga<span>Verse</span></a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="mangas.html" class="active">Mangas</a>
+            <a href="auth.html">Iniciar Sesión</a>
+        </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="detail-box">
+      <div class="detail-container">
+        <!-- Portada -->
+        <div class="cover">
+          <img src="" alt="Portada">
+          <button class="btn-read full" id="btnRead">Empezar a Leer</button>
+        </div>
+
+        <!-- Información -->
+        <div class="info">
+          <h1></h1>
+          <p><strong>Género:</strong> <span id="genre"></span></p>
+          <p><strong>Rating:</strong> <span id="rating"></span> ★</p>
+
+          <!-- Botones alternar -->
+          <div class="toggle-section">
+            <button id="showChapters" class="btn-read">Ver capítulos</button>
+            <button id="showSynopsis" class="btn-read">Ver sinopsis</button>
+          </div>
+
+          <!-- Sinopsis -->
+          <div id="synopsis" style="display:none; margin-top:15px;">
+            <p id="synopsisText"></p>
+          </div>
+
+          <!-- Capítulos -->
+          <div id="chapters" style="margin-top:15px;">
+            <h2>Capítulos disponibles</h2>
+            <div id="list"></div>
+            <button id="toggleBtn" class="btn-read" style="margin-top:10px;">Mostrar más</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="data/mangas.js"></script>
+  <script>
+    function loadMangaDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+
+      const manga = mangasData.mangas.find(m => m.id === id);
+
+      document.querySelector("h1").textContent = manga.title;
+      document.querySelector(".cover img").src = manga.cover;
+      document.getElementById("genre").textContent = manga.genre;
+      document.getElementById("rating").textContent = manga.rating;
+      document.getElementById("synopsisText").textContent = manga.synopsis || "Sinopsis no disponible.";
+
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      for (let i = 1; i <= Math.min(5, manga.chapters_count); i++) {
+        const div = document.createElement("div");
+        div.className = "chapter-item wide";
+        div.innerHTML = `<strong>Capítulo ${i}</strong>`;
+        div.onclick = () => window.location.href = `reader.html?id=${manga.id}&chapter=${i}`;
+        list.appendChild(div);
+      }
+
+      let expanded = false;
+      document.getElementById("toggleBtn").onclick = () => {
+        if (!expanded) {
+          for (let i = 6; i <= manga.chapters_count; i++) {
+            const div = document.createElement("div");
+            div.className = "chapter-item wide";
+            div.innerHTML = `<strong>Capítulo ${i}</strong>`;
+            div.onclick = () => window.location.href = `reader.html?id=${manga.id}&chapter=${i}`;
+            list.appendChild(div);
+          }
+          document.getElementById("toggleBtn").textContent = "Mostrar menos";
+          expanded = true;
+        } else {
+          list.innerHTML = "";
+          for (let i = 1; i <= Math.min(5, manga.chapters_count); i++) {
+            const div = document.createElement("div");
+            div.className = "chapter-item wide";
+            div.innerHTML = `<strong>Capítulo ${i}</strong>`;
+            div.onclick = () => window.location.href = `reader.html?id=${manga.id}&chapter=${i}`;
+            list.appendChild(div);
+          }
+          document.getElementById("toggleBtn").textContent = "Mostrar más";
+          expanded = false;
+        }
+      };
+
+      document.getElementById("btnRead").onclick = () => {
+        window.location.href = `reader.html?id=${manga.id}&chapter=1`;
+      };
+
+      document.getElementById("showChapters").onclick = () => {
+        document.getElementById("chapters").style.display = "block";
+        document.getElementById("synopsis").style.display = "none";
+      };
+      document.getElementById("showSynopsis").onclick = () => {
+        document.getElementById("chapters").style.display = "none";
+        document.getElementById("synopsis").style.display = "block";
+      };
+    }
+    window.onload = loadMangaDetail;
+  </script>
+</body>
+</html>

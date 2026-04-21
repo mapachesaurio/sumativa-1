@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth - MangaVerse</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .auth-container {
+      max-width: 420px;
+      margin: 80px auto;
+      background: #1e2937;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #334155;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .tab.active {
+      color: white;
+      border-bottom: 3px solid #e11d48;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #334155;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.05rem;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #e11d48;
+      background: #475569;
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 14px;
+      background: #e11d48;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .auth-btn:hover {
+      background: #f43f5e;
+      transform: translateY(-2px);
+    }
+
+    .switch-link {
+      margin-top: 25px;
+      color: #94a3b8;
+    }
+
+    .switch-link a {
+      color: #e11d48;
+      text-decoration: none;
+    }
+
+    .switch-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Manga<span>Verse</span></a>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="mangas.html">Mangas</a>
+        <a href="auth.html" class="active">Iniciar Sesión</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="auth-container">
+      <div class="tabs">
+        <button class="tab active" id="loginTab" onclick="showTab('login')">Iniciar Sesión</button>
+        <button class="tab" id="registerTab" onclick="showTab('register')">Registrarse</button>
+      </div>
+
+      <!-- Login -->
+      <div id="loginForm">
+        <h2>Iniciar Sesión</h2>
+        <div class="input-group">
+          <label>Usuario</label>
+          <input type="text" id="loginUsername" placeholder="Tu usuario">
+        </div>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="Contraseña">
+        </div>
+        <button class="auth-btn" onclick="login()">Iniciar Sesión</button>
+      </div>
+
+      <!-- Registro -->
+      <div id="registerForm" style="display: none;">
+        <h2>Crear Cuenta</h2>
+        <div class="input-group">
+          <label>Usuario</label>
+          <input type="text" id="regUsername" placeholder="Elige un usuario">
+        </div>
+        <div class="input-group">
+          <label>Correo electrónico</label>
+          <input type="email" id="regEmail" placeholder="tu@email.com">
+        </div>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" id="regPassword" placeholder="Crea una contraseña">
+        </div>
+        <button class="auth-btn" onclick="register()">Registrarse</button>
+      </div>
+
+      <div class="switch-link" id="switchText">
+        ¿No tienes cuenta? <a href="#" onclick="showTab('register')">Regístrate aquí</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <h2>MangaVerse</h2>
+      <p>Tu plataforma favorita para leer mangas online gratis.</p>
+      <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tab) {
+      if (tab === 'login') {
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginTab').classList.add('active');
+        document.getElementById('registerTab').classList.remove('active');
+        document.getElementById('switchText').innerHTML = `¿No tienes cuenta? <a href="#" onclick="showTab('register')">Regístrate aquí</a>`;
+      } else {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('loginTab').classList.remove('active');
+        document.getElementById('registerTab').classList.add('active');
+        document.getElementById('switchText').innerHTML = `¿Ya tienes cuenta? <a href="#" onclick="showTab('login')">Inicia sesión aquí</a>`;
+      }
+    }
+
+    function login() {
+      const username = document.getElementById("loginUsername").value.trim();
+
+      if (!username) {
+        alert("Ingresa tu usuario");
+        return;
+      }
+
+      const savedUsername = localStorage.getItem("username");
+
+      if (savedUsername && savedUsername.toLowerCase() === username.toLowerCase()) {
+        localStorage.setItem("isLoggedIn", "true");
+        alert(`Bienvenido de nuevo, ${username}`);
+        window.location.href = "mangas.html";
+      } else {
+        alert("Usuario incorrecto.\nPrimero regístrate si no tienes cuenta.");
+      }
+    }
+
+    function register() {
+      const username = document.getElementById("regUsername").value.trim();
+
+      if (!username || username.length < 3) {
+        alert("El usuario debe tener al menos 3 caracteres");
+        return;
+      }
+
+      localStorage.setItem("username", username);
+      localStorage.setItem("isLoggedIn", "true");
+
+      alert(`¡Cuenta creada exitosamente!\nUsuario: ${username}`);
+      window.location.href = "mangas.html";
+    }
+
+    // Solo redirige si estás en mangas.html y quieres forzar login, pero NO en auth.html
+    // (ya no redirige automáticamente aquí)
+  </script>
+</body>
+</html>
