@@ -622,7 +622,11 @@ header button:hover {
 /* Ajustes móviles específicos para mangas.html */
 @media (max-width: 768px) {
   /* Asegura que el header definido en CSS afecte al header real */
-  header.site-header { display: block; padding: 10px 16px; height: var(--header-height); }
+  header.site-header { 
+    display: none; 
+    padding: 10px 16px; 
+    height: var(--header-height); 
+  }
 
   /* Título del catálogo: más ancho y tamaño legible */
   .manga-titulo {
