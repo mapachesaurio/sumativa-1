@@ -9,6 +9,7 @@ const mangasData = {
       cover: "https://i.ibb.co/Xfb4MTKV/mago-pastor.webp",
       synopsis: "Allí se encontraba un pastor aparentemente corriente llamado Turan, procedente de la colina de Hisaril. Tras haber vivido ocultando su talento como gran archimago, finalmente sale al mundo.",
       chapters: {
+
         1: [
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/gLY1mWKp/3.webp",
@@ -888,6 +889,7 @@ const mangasData = {
       cover: "https://i.ibb.co/mCtzYmyG/bad-born-blood.jpg",
       synopsis: "El hogar de la humanidad ya no es la Tierra. Los viajes interestelares son ya habituales y la tecnología ha sustituido a la sangre y la carne. Luka, que creció en los barrios bajos, ha cumplido quince años y se ha presentado a los exámenes de selección. Su aptitud es de la «Guardia Imperial».",
       chapters: {
+
         1:[
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/SXwxQWGV/2.webp",
@@ -2876,6 +2878,19 @@ const mangasData = {
           "https://i.ibb.co/wZSj08LB/51.png"
 ],        
       }
-    }
-  ]
+    },
+  
+
+  
+  
+    {
+      id: 3,
+      title: "el soberano del hogar",
+      genre: "acción, fantasía, supervivencia, apocalíptico.",
+      rating: 4.7,
+      chapters_count: 	79,
+      cover: "https://i.ibb.co/QjvHW79G/descarga.jpg",
+      synopsis: "Mata monstruos, salva a tus vecinos y expande tu dominio, todo desde la comodidad de tu sofá. Cuando su ciudad se ve infestada de monstruos, Jaehyeon descubre una habilidad que lo convierte en el amo absoluto de su edificio de apartamentos. Pero su habilidad tiene una condición: no puede salir de su apartamento. Ahora debe armar a sus vecinos y guiarlos más allá de su edificio para sobrevivir en el mundo postapocalíptico en el que se encuentran.",
+      chapters: []
+    }]
 };

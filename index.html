@@ -4,22 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MangaVerse - Lee Mangas Gratis</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/fzV7DzWC/Copilot-20260424-215841.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- Navbar -->
-  <header>
-    <nav>
-      <a href="#" class="logo">Manga<span>Verse</span></a>
-      <div class="nav-links">
-        <a href="index.html" class="active">Inicio</a>
-        <a href="mangas.html">Mangas</a>
-        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
-      </div>
-    </nav>
-  </header>
+<!-- Header para PC (tu código existente) -->
+<header class="site-header">
+  <nav>
+    <a href="index.html" class="logo">Manga<span>Verse</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="mangas.html">Mangas</a>
+      <a href="auth.html" id="auth-link">Iniciar Sesión</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Navbar móvil colapsable -->
+<nav class="mobile-navbar" aria-label="Navegación principal móvil">
+  <div class="mobile-container">
+    <a href="#" class="mobile-brand">Manga<span>Verse</span></a>
+    <button class="mobile-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <ul>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="mangas.html">Mangas</a></li>
+      <li><a href="auth.html" id="auth-link-mobile">Iniciar Sesión</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Espacio para compensar header fijo -->
+<div class="page-offset"></div>
+
+
+
+
+
+
+
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -63,6 +97,51 @@
       <p>&copy; 2026 MangaVerse. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mobileNav = document.querySelector('.mobile-navbar');
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('mobileMenu');
+
+    if (!toggle || !menu || !mobileNav) return;
+
+    function setExpanded(expanded) {
+      toggle.setAttribute('aria-expanded', expanded);
+      if (expanded) {
+        mobileNav.classList.add('open');
+        menu.removeAttribute('hidden');
+      } else {
+        mobileNav.classList.remove('open');
+        menu.setAttribute('hidden', '');
+      }
+    }
+
+    toggle.addEventListener('click', function () {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      setExpanded(!isOpen);
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    menu.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') setExpanded(false);
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setExpanded(false);
+    });
+
+    // Asegurar estado correcto al redimensionar
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) {
+        // cerrar móvil si se pasa a escritorio
+        setExpanded(false);
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>

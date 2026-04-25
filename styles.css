@@ -2,6 +2,7 @@
   --primary: #e11d48;
   --dark: #0f172a;
   --gray: #1e2937;
+  --header-height: 64px;
 }
 
 /* Reset */
@@ -15,16 +16,21 @@ body {
 }
 
 /* Header */
-header {
-  background: linear-gradient(to right, #1e2937, #0f172a);
+
+
+/* Header de escritorio (tu header existente) */
+header.site-header {
+  background: linear-gradient(to right, var(--gray), var(--dark));
   padding: 12px 24px;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid #334155;
+  height: var(--header-height);
+  box-sizing: border-box;
 }
-header nav {
+header.site-header nav {
   display:flex; justify-content:space-between; align-items:center;
   max-width:1400px; margin:0 auto;
 }
@@ -39,6 +45,93 @@ header .logo span { color:#f8fafc; }
 }
 .nav-links a:hover { color: var(--primary); }
 .nav-links a.active { color: var(--primary); font-weight:bold; }
+
+/* Navbar móvil */
+.mobile-navbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1100;
+  background: linear-gradient(to right, var(--gray), var(--dark));
+  border-bottom: 1px solid #334155;
+  box-sizing: border-box;
+}
+.mobile-container {
+  display:flex; justify-content:space-between; align-items:center;
+  max-width:1400px; margin:0 auto; padding:12px 24px;
+}
+.mobile-brand {
+  color: var(--primary); text-decoration:none; font-weight:bold; font-size:1.2rem;
+}
+.mobile-brand span { color:#f8fafc; }
+
+/* Toggle button */
+.mobile-toggle {
+  display:inline-flex; flex-direction:column; justify-content:space-between;
+  width:28px; height:20px; background:none; border:0; cursor:pointer;
+  padding:0; box-sizing:border-box;
+}
+.mobile-toggle:focus { outline:2px solid rgba(225,29,72,0.18); border-radius:4px; }
+.mobile-toggle .bar {
+  display:block; height:3px; background:#cbd5e1; border-radius:2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Menu colapsable */
+.mobile-menu {
+  max-width:1400px; margin:0 auto; padding:8px 24px 16px;
+  background: linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,41,55,0.95));
+  box-sizing:border-box;
+  transform-origin: top;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.mobile-menu ul { list-style:none; margin:0; padding:0; }
+.mobile-menu li { margin:8px 0; }
+.mobile-menu a {
+  color:#cbd5e1; text-decoration:none; font-weight:600; display:block;
+  padding:8px 0;
+}
+.mobile-menu a.active { color: var(--primary); }
+
+/* Estado abierto animado */
+.mobile-navbar.open .mobile-menu { 
+  display: block;
+  transform: translateY(0); 
+  opacity:1; 
+}
+.mobile-navbar .mobile-menu[hidden] { 
+  display:none; 
+  transform: translateY(-6px); 
+  opacity:0; 
+}
+
+/* Animación de la hamburguesa cuando está abierto */
+.mobile-navbar.open .mobile-toggle .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.mobile-navbar.open .mobile-toggle .bar:nth-child(2) { opacity:0; }
+.mobile-navbar.open .mobile-toggle .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Compensar el contenido por el header fijo */
+.page-offset { height: var(--header-height); }
+
+/* Breakpoints */
+@media (min-width: 769px) {
+  .mobile-navbar { display: none; }
+  header.site-header { display: block; }
+  .page-offset { height: var(--header-height); }
+}
+
+@media (max-width: 768px) {
+  header.site-header { display: none; }
+  .mobile-navbar { display: block; }
+  .page-offset { height: var(--header-height); }
+}
+
+
 
 /* Hero con imagen */
 .hero {
@@ -295,9 +388,9 @@ header.hidden {
     display: flex;
     flex-direction: column;
     align-items: center;     /* Centra horizontalmente */
-    gap: 10px;               /* Espacio entre páginas */
+    gap: 0px;               /* Espacio entre páginas */
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0 auto ;
 }
 
 .page-container img {
@@ -306,7 +399,7 @@ header.hidden {
     height: auto;
     display: block;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 }
 
 /* En pantallas grandes, limitar el ancho máximo de las páginas */
@@ -372,7 +465,7 @@ header.hidden {
 
 /* FIX HEADER EN PÁGINAS DE DETALLE Y READER */
 body {
-    padding-top: 75px;   /* espacio para el header fijo */
+    padding-top: 0px;   /* espacio para el header fijo */
 }
 
 .detail-box {
