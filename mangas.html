@@ -8,16 +8,21 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" class="logo">Manga<span>Verse</span></a>
-      <div class="nav-links">
-        <a href="index.html">Inicio</a>
-        <a href="mangas.html" class="active">Mangas</a>
-        <a href="auth.html" id="auth-link">Iniciar Sesión</a>
-      </div>
-    </nav>
-  </header>
+  <header class="site-header">
+  <nav>
+    <a href="index.html" class="logo">Manga<span>Verse</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="mangas.html">Mangas</a>
+      <a href="auth.html" id="auth-link">Iniciar Sesión</a>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
 
   <main class="main-content">
   <h1 class="manga-titulo">Catálogo de Mangas</h1>
@@ -69,7 +74,6 @@
           <img src="${m.cover}" alt="${m.title}">
           <div class="manga-info">
             <h3>${m.title}</h3>
-            <div class="genre">${m.genre}</div>
             <div class="rating">★ ${m.rating}</div>
             <div class="chapters">${m.chapters_count} capítulos</div>
           </div>
