@@ -299,7 +299,19 @@ header .logo span { color:#f8fafc; }
   border-radius:8px;
   box-shadow:0 2px 8px rgba(0,0,0,0.6);
 }
-.detail-container { display:flex; gap:30px; align-items:flex-start; }
+.detail-container { 
+  display:flex; 
+  gap:30px; 
+  align-items:flex-start; 
+}
+@media (max-width: 768px) {
+  .detail-container {
+    display: block;
+    gap: 15px;
+    align-items: stretch;
+  }
+}
+
 .cover {
   display:flex;
   flex-direction:column;
