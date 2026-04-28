@@ -9,26 +9,21 @@
 </head>
 <body>
   <header id="readerHeader">
-    <div class="reader-top-nav">
-        <a href="index.html" class="logo">Manga<span>Verse</span></a>
-        <div class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="mangas.html" class="active">Mangas</a>
-            <a href="auth.html">Iniciar Sesión</a>
-        </div>
-    </div>
+  <div class="reader-top-nav">
+    <a href="index.html" class="logo">Manga<span>Verse</span></a>
+  </div>
 
-    <div class="reader-controls">
-        <button onclick="goBack()">← Volver</button>
-        <div>
-            <h2 id="mangaTitle"></h2>
-            <p id="chapterInfo"></p>
-        </div>
-        <div>
-            <button onclick="prevChapter()">◀ Cap. anterior</button>
-            <button onclick="nextChapter()">Cap. siguiente ▶</button>
-        </div>
+  <div class="reader-controls">
+    <button onclick="goBack()">← Volver</button>
+    <div>
+      <h2 id="mangaTitle"></h2>
+      <p id="chapterInfo"></p>
     </div>
+    <div>
+      <button onclick="prevChapter()">◀ Cap. anterior</button>
+      <button onclick="nextChapter()">Cap. siguiente ▶</button>
+    </div>
+  </div>
 </header>
 
   <main class="reader-main">
