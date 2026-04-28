@@ -568,7 +568,7 @@ header button:hover {
 
 .reader-top-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
