@@ -308,7 +308,16 @@ header .logo span { color:#f8fafc; }
   .detail-container {
     display: block;
     gap: 15px;
-    align-items: stretch;
+  }
+
+  .cover,
+  .info {
+    width: 100%; /* ocupan todo el ancho disponible */
+  }
+
+  #chapters {
+    width: 100%;
+    box-sizing: border-box; /* el padding no desborda */
   }
 }
 
