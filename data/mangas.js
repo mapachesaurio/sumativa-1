@@ -2,14 +2,14 @@ const mangasData = {
   mangas: [
     {
       id: 1,
-      title: "El Mago Pastor",
+      title: "el mago pastor",
       genre: "fantasía, acción, aventura",
       rating: 4.6,
       chapters_count: 16,
       cover: "https://i.ibb.co/Xfb4MTKV/mago-pastor.webp",
       synopsis: "Allí se encontraba un pastor aparentemente corriente llamado Turan, procedente de la colina de Hisaril. Tras haber vivido ocultando su talento como gran archimago, finalmente sale al mundo.",
       chapters: {
-
+        // el mago pastor - cap 1
         1: [
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/gLY1mWKp/3.webp",
@@ -61,6 +61,7 @@ const mangasData = {
           "https://i.ibb.co/TM1Rb7vz/49.webp",
           "https://i.ibb.co/yFjSRkjk/50.webp"
         ],
+        // el mago pastor - cap 2
         2: [
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/sdDshDhj/3.webp",
@@ -107,6 +108,7 @@ const mangasData = {
           "https://i.ibb.co/GX1bf97/44.webp",
           "https://i.ibb.co/5HnrKG8/45.webp"
         ],
+        // el mago pastor - cap 3
         3:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/4ZzrBvph/3.webp",
@@ -160,6 +162,7 @@ const mangasData = {
           "https://i.ibb.co/4nDTfQFG/51.webp",
           "https://i.ibb.co/hhZg3Vp/52.webp"
         ],
+        // el mago pastor - cap 4
         4:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/fRsLtvV/3.webp",
@@ -194,6 +197,7 @@ const mangasData = {
           "https://i.ibb.co/MkRHQ5n9/52.webp",
           "https://i.ibb.co/tp5jxyX3/53.webp"
         ],
+        // el mago pastor - cap 5
         5:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/PZd5cQ8J/3.webp",
@@ -240,6 +244,7 @@ const mangasData = {
           "https://i.ibb.co/5WpyC6h4/44.webp",
           "https://i.ibb.co/mKQLJp3/45.webp"
         ],
+        // el mago pastor - cap 6
         6:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/cSsY2NKV/3.webp",
@@ -277,6 +282,7 @@ const mangasData = {
           "https://i.ibb.co/60RxTz5S/43.webp",
           "https://i.ibb.co/ZpyqBW3K/44.webp"
         ],
+        // el mago pastor - cap 7
         7:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/B2qBsjz3/3.webp",
@@ -321,6 +327,7 @@ const mangasData = {
           "https://i.ibb.co/gM5jVqCt/42.webp",
           "https://i.ibb.co/Qv6g7PCk/43.webp"
         ],
+        // el mago pastor - cap 8
         8:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/4wXskFY7/3.webp",
@@ -372,6 +379,7 @@ const mangasData = {
           "https://i.ibb.co/1ftcBSFt/49.webp",
           "https://i.ibb.co/N6QwQ1LY/50.webp"
         ],
+        // el mago pastor - cap 9
         9:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/fYvg0qp7/4.webp",
@@ -431,6 +439,7 @@ const mangasData = {
           "https://i.ibb.co/wFdMBkFV/58.webp",
           "https://i.ibb.co/p6BmFyVx/59.webp"
         ],
+        // el mago pastor - cap 10
         10:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/9mhWzRpx/4.webp",
@@ -490,6 +499,7 @@ const mangasData = {
           "https://i.ibb.co/N6zv2GLW/58.webp",
           "https://i.ibb.co/RG71Ny4J/59.webp",
         ],
+        // el mago pastor - cap 11
         11:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/ycHPJjy2/3.webp",
@@ -546,6 +556,7 @@ const mangasData = {
           "https://i.ibb.co/gMxdZ79R/54.webp",
           "https://i.ibb.co/MyGTg7d7/55.webp"
         ],
+        // el mago pastor - cap 12
         12:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/hx8nYPWj/4.webp",
@@ -609,6 +620,7 @@ const mangasData = {
           "https://i.ibb.co/wF1h1Wjv/62.webp",
           "https://i.ibb.co/3YC6Ytq0/63.webp"
         ],
+        // el mago pastor - cap 13
         13:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/zTkHPxzC/4.webp",
@@ -669,6 +681,7 @@ const mangasData = {
           "https://i.ibb.co/qMPxThLL/59.webp",
           "https://i.ibb.co/jvhKrPNC/60.webp"
         ],
+        // el mago pastor - cap 14
         14:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/ddWrMCF/4.webp",
@@ -735,6 +748,7 @@ const mangasData = {
           "https://i.ibb.co/7d6hjqR1/65.webp",
           "https://i.ibb.co/rRvGMRGy/66.webp"
         ],
+        // el mago pastor - cap 15
         15:[
           "https://i.ibb.co/VpYNV6Yb/3.webp",
           "https://i.ibb.co/chzgZp9f/3.webp",
@@ -811,6 +825,7 @@ const mangasData = {
           "https://i.ibb.co/9mRpWMN2/74.webp",
           "https://i.ibb.co/9mf6HNq1/75.webp"
         ],
+        // el mago pastor - cap 16
         16:[
           "https://i.ibb.co/C5MYT0q3/2.webp",
           "https://i.ibb.co/6RMZzpYL/3.webp",
@@ -885,11 +900,11 @@ const mangasData = {
       title: "sangre maldita",
       genre: "acción, ciencia ficción, fantasía militar",
       rating: 4.5,
-      chapters_count: 30,
+      chapters_count: 33,
       cover: "https://i.ibb.co/mCtzYmyG/bad-born-blood.jpg",
       synopsis: "El hogar de la humanidad ya no es la Tierra. Los viajes interestelares son ya habituales y la tecnología ha sustituido a la sangre y la carne. Luka, que creció en los barrios bajos, ha cumplido quince años y se ha presentado a los exámenes de selección. Su aptitud es de la «Guardia Imperial».",
       chapters: {
-
+        // sangre maldita - cap 1
         1:[
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/SXwxQWGV/2.webp",
@@ -957,6 +972,7 @@ const mangasData = {
           "https://i.ibb.co/GfPxfb0V/64.png",
           "https://i.ibb.co/GfPxfb0V/64.png"
         ],
+        // sangre maldita - cap 2
         2:[
           "https://i.ibb.co/SXwxQWGV/2.webp",
           "https://i.ibb.co/MyNLdhxw/4.webp",
@@ -1008,6 +1024,7 @@ const mangasData = {
           "https://i.ibb.co/whv4HwmD/50.webp",
           "https://i.ibb.co/S48tJDpB/51.webp"
         ],
+        // sangre maldita - cap 3
         3: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/SXwxQWGV/2.webp",
@@ -1058,6 +1075,7 @@ const mangasData = {
           "https://i.ibb.co/SDbwPJhQ/47.webp",
           "https://i.ibb.co/JRZyLbKD/48.webp"
 ],
+        // sangre maldita - cap 4
         4: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/SXwxQWGV/2.webp",
@@ -1102,6 +1120,7 @@ const mangasData = {
           "https://i.ibb.co/v4FCT1D4/41.webp",
           "https://i.ibb.co/1JJmPjzZ/42.webp"
 ],
+        // sangre maldita - cap 5
         5: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/SXwxQWGV/2.webp",
@@ -1142,6 +1161,7 @@ const mangasData = {
           "https://i.ibb.co/S4yDWsx0/37.webp",
           "https://i.ibb.co/tMb3G1Hy/38.webp"
 ],
+        // sangre maldita - cap 6
         6: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/SXwxQWGV/2.webp",
@@ -1192,6 +1212,7 @@ const mangasData = {
           "https://i.ibb.co/XHzvLXh/47.webp",
           "https://i.ibb.co/9kJfSrMc/48.webp"
 ],
+        // sangre maldita - cap 7
         7: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/Tx7ZzTmv/2.webp",
@@ -1224,6 +1245,7 @@ const mangasData = {
           "https://i.ibb.co/nNT3fMzZ/29.webp",
           "https://i.ibb.co/gb85PW8L/30.webp"
 ],
+        // sangre maldita - cap 8
         8: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/G4HWLGYy/2.webp",
@@ -1259,6 +1281,7 @@ const mangasData = {
           "https://i.ibb.co/Y7wSNGht/32.webp",
           "https://i.ibb.co/qYxm3y6R/33.webp"
 ],
+        // sangre maldita - cap 9
         9: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/n86JgbcY/2.webp",
@@ -1301,6 +1324,7 @@ const mangasData = {
           "https://i.ibb.co/M56wtXR0/39.webp",
           "https://i.ibb.co/TqrsXxM1/40.webp"
 ],
+        // sangre maldita - cap 10
         10: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/rR4KNwpB/2.webp",
@@ -1333,6 +1357,7 @@ const mangasData = {
           "https://i.ibb.co/9mHS1nY9/29.webp",
           "https://i.ibb.co/bjLX5N1k/30.webp"
 ],
+        // sangre maldita - cap 11
         11: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/mCxLzZ0R/2.webp",
@@ -1365,6 +1390,7 @@ const mangasData = {
           "https://i.ibb.co/bRgydPw9/29.webp",
           "https://i.ibb.co/bgbLb1Qh/30.webp"
 ],
+        // sangre maldita - cap 12
         12: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/gZMb8vHt/2.webp",
@@ -1397,6 +1423,7 @@ const mangasData = {
           "https://i.ibb.co/SX7PTTLj/29.webp",
           "https://i.ibb.co/tTx8PD0X/30.webp"
 ],
+        // sangre maldita - cap 13
         13: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/F4LK4YHs/2.webp",
@@ -1428,6 +1455,7 @@ const mangasData = {
           "https://i.ibb.co/7Jm3gGy1/28.webp",
           "https://i.ibb.co/j94tVbcB/29.webp"
 ],
+        // sangre maldita - cap 14
         14: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/CpjDhDF9/2.webp",
@@ -1459,6 +1487,7 @@ const mangasData = {
           "https://i.ibb.co/nNJWLQvY/28.webp",
           "https://i.ibb.co/4gn7bJHG/29.webp"
 ],
+        // sangre maldita - cap 15
         15: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/Pvw0VVYv/2.webp",
@@ -1502,6 +1531,7 @@ const mangasData = {
           "https://i.ibb.co/FLRFjYNg/40.webp",
           "https://i.ibb.co/tT9Zc1rJ/41.webp"
 ],
+        // sangre maldita - cap 16
         16: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/gxvfHQF/2.webp",
@@ -1537,6 +1567,7 @@ const mangasData = {
           "https://i.ibb.co/zhqMw7FG/32.webp",
           "https://i.ibb.co/HLfGdQMD/33.webp"
 ],
+        // sangre maldita - cap 17
         17: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/fVFfWbTs/2.webp",
@@ -1571,6 +1602,7 @@ const mangasData = {
           "https://i.ibb.co/ZRFCV1nG/31.webp",
           "https://i.ibb.co/8DYw5MKP/32.webp"
 ],
+        // sangre maldita - cap 18
         18: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/KHF4NkH/2.webp",
@@ -1610,6 +1642,7 @@ const mangasData = {
           "https://i.ibb.co/CK0YnFXj/36.webp",
           "https://i.ibb.co/FqfN3BMs/37.webp"
 ],
+        // sangre maldita - cap 19
         19: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/TxDgnJSz/3.webp",
@@ -1650,6 +1683,7 @@ const mangasData = {
           "https://i.ibb.co/fGByRPPC/37.webp",
           "https://i.ibb.co/LXtxtyb3/38.webp"
 ],
+        // sangre maldita - cap 20
         20: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/pS0QxHG/2.webp",
@@ -1683,6 +1717,7 @@ const mangasData = {
           "https://i.ibb.co/d03N8j5D/30.webp",
           "https://i.ibb.co/yBmvTbjF/31.webp"
 ],
+        // sangre maldita - cap 21
         21: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/pS0QxHG/2.webp",
@@ -1720,6 +1755,7 @@ const mangasData = {
           "https://i.ibb.co/bgD4cqSD/32.webp",
           "https://i.ibb.co/SDH8Gc5Y/33.webp"
 ],
+        // sangre maldita - cap 22
         22: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/pS0QxHG/2.webp",
@@ -1752,6 +1788,7 @@ const mangasData = {
           "https://i.ibb.co/RpK7NLVP/29.webp",
           "https://i.ibb.co/FbyZkJDS/30.webp"
 ],
+        // sangre maldita - cap 23
         23: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/pS0QxHG/2.webp",
@@ -1789,6 +1826,7 @@ const mangasData = {
           "https://i.ibb.co/bgD4cqSD/32.webp",
           "https://i.ibb.co/SDH8Gc5Y/33.webp"
 ],
+        // sangre maldita - cap 24
         24: [
           "https://i.ibb.co/CppyktTC/1.webp",
           "https://i.ibb.co/pS0QxHG/2.webp",
@@ -1823,6 +1861,7 @@ const mangasData = {
           "https://i.ibb.co/gb8dG0g8/31.webp",
           "https://i.ibb.co/bg6pFp9H/32.webp"
         ],
+        // sangre maldita - cap 25
         25: [
           "https://i.ibb.co/wh0mVK9B/2.webp",
           "https://i.ibb.co/kVw1qnkt/4.webp",
@@ -1869,6 +1908,7 @@ const mangasData = {
           "https://i.ibb.co/TBf5hcmz/45.webp",
           "https://i.ibb.co/Kp2JhY7h/46.webp"
         ],
+        // sangre maldita - cap 26
         26:[
           "https://i.ibb.co/bjQbnxfd/2.webp",
           "https://i.ibb.co/PzrpGnpZ/4.webp",
@@ -1908,6 +1948,7 @@ const mangasData = {
           "https://i.ibb.co/VcBtfSF3/38.webp",
           "https://i.ibb.co/ynWf6Qrx/39.webp"
         ],
+        // sangre maldita - cap 27
         27: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/JwXNRD6C/2.webp",
@@ -1968,6 +2009,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
+        // sangre maldita - cap 28
         28: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/M43w5TM/2.webp",
@@ -2021,6 +2063,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
+        // sangre maldita - cap 29
         29: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/XrqSPLds/2.webp",
@@ -2082,6 +2125,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
+        // sangre maldita - cap 30
         30: [
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/b503JsGT/2.webp",
@@ -2130,6 +2174,7 @@ const mangasData = {
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
 ],
+        // sangre maldita - cap 31
         31: [
           "https://i.ibb.co/bMzPNvzx/2.webp",
           "https://i.ibb.co/qYBgGfZx/4.webp",
@@ -2177,10 +2222,9 @@ const mangasData = {
           "https://i.ibb.co/tTY8qtNM/46.webp",
           "https://i.ibb.co/pjy3NvyQ/47.webp"
 ],
-        "32": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
+        // sangre maldita - cap 32
+        32:[
           "https://i.ibb.co/Zzj5Wzhs/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
           "https://i.ibb.co/fVy8Hc20/4.webp",
           "https://i.ibb.co/pYW5fD9/5.webp",
           "https://i.ibb.co/TMPRMzDg/6.webp",
@@ -2228,13 +2272,10 @@ const mangasData = {
           "https://i.ibb.co/F4hnBrxx/48.webp",
           "https://i.ibb.co/rf6fQmxV/49.webp",
           "https://i.ibb.co/p6N8DNZ5/50.webp",
-          "https://i.ibb.co/zW2jXtrB/51.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/fGPnky8w/49.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "33": [
+          "https://i.ibb.co/zW2jXtrB/51.webp"
+        ],
+        // sangre maldita - cap 33
+        33:[
           "https://i.ibb.co/6cZkC9qK/1.webp",
           "https://i.ibb.co/rfcjcVJ9/2.webp",
           "https://i.ibb.co/0yhTqMbj/3.webp",
@@ -2291,592 +2332,10 @@ const mangasData = {
           "https://i.ibb.co/qFppVcKp/47.webp",
           "https://i.ibb.co/fGPnky8w/49.webp",
           "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "34": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/KzqpmLFN/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/wrzj7RfD/4.webp",
-          "https://i.ibb.co/q3S1bXN0/5.webp",
-          "https://i.ibb.co/B29J3xS7/6.webp",
-          "https://i.ibb.co/fdzc2vm6/7.webp",
-          "https://i.ibb.co/NnxzKJwV/8.webp",
-          "https://i.ibb.co/7JxBSdmR/9.webp",
-          "https://i.ibb.co/5XNsS96G/10.webp",
-          "https://i.ibb.co/Y4dS9fy0/11.webp",
-          "https://i.ibb.co/RkBRxCSP/12.webp",
-          "https://i.ibb.co/b51P44sD/13.webp",
-          "https://i.ibb.co/7xNpkfG1/14.webp",
-          "https://i.ibb.co/xtVtYMTT/15.webp",
-          "https://i.ibb.co/p6GW0b5y/16.webp",
-          "https://i.ibb.co/mFbZ4kf8/17.webp",
-          "https://i.ibb.co/JRMbv1Vq/18.webp",
-          "https://i.ibb.co/cK7SJ65C/19.webp",
-          "https://i.ibb.co/j9WY6JCj/20.webp",
-          "https://i.ibb.co/xtrcRZ5t/21.webp",
-          "https://i.ibb.co/hFp1jXNW/22.webp",
-          "https://i.ibb.co/Ngv8r0Wh/23.webp",
-          "https://i.ibb.co/3mGWyZ15/24.webp",
-          "https://i.ibb.co/Gfqqwj7S/25.webp",
-          "https://i.ibb.co/XrXKNw9r/26.webp",
-          "https://i.ibb.co/fd9qmkDF/27.webp",
-          "https://i.ibb.co/N2K2WzQd/28.webp",
-          "https://i.ibb.co/fzk0R2fn/29.webp",
-          "https://i.ibb.co/kgMZVF8s/30.webp",
-          "https://i.ibb.co/pjCh1d7V/31.webp",
-          "https://i.ibb.co/84gTwKKz/32.webp",
-          "https://i.ibb.co/kgwG28cV/33.webp",
-          "https://i.ibb.co/FbMWK2My/34.webp",
-          "https://i.ibb.co/7xvWLpnM/35.webp",
-          "https://i.ibb.co/gFbZ3VXc/36.webp",
-          "https://i.ibb.co/nqCZWTpd/37.webp",
-          "https://i.ibb.co/bgMmKzvC/38.webp",
-          "https://i.ibb.co/d0gZG3NP/39.webp",
-          "https://i.ibb.co/ccz4CFSm/40.webp",
-          "https://i.ibb.co/Cs8qGBRW/41.webp",
-          "https://i.ibb.co/mC8XCRJV/42.webp",
-          "https://i.ibb.co/4C2jt2m/43.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/fGPnky8w/49.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "35": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/h1RRvHwg/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/XkvC7Yyq/4.webp",
-          "https://i.ibb.co/yF9v5vmy/5.webp",
-          "https://i.ibb.co/VWM96vS9/6.webp",
-          "https://i.ibb.co/8nq4GHrF/7.webp",
-          "https://i.ibb.co/KjpxFs2y/8.webp",
-          "https://i.ibb.co/xqbT3TJ7/9.webp",
-          "https://i.ibb.co/whcQGfpf/10.webp",
-          "https://i.ibb.co/1GBDFvMj/11.webp",
-          "https://i.ibb.co/vx3z8rNh/12.webp",
-          "https://i.ibb.co/N282pW0C/13.webp",
-          "https://i.ibb.co/sv2sr5cr/14.webp",
-          "https://i.ibb.co/k63wpPZR/15.webp",
-          "https://i.ibb.co/t0pCCHv/16.webp",
-          "https://i.ibb.co/ZpWSXcnS/17.webp",
-          "https://i.ibb.co/v4GPXwmx/18.webp",
-          "https://i.ibb.co/sdnLnPdx/19.webp",
-          "https://i.ibb.co/Lhh28bMB/20.webp",
-          "https://i.ibb.co/Vcm6b5rW/21.webp",
-          "https://i.ibb.co/S7s3rJnp/22.webp",
-          "https://i.ibb.co/JjrrV3fV/23.webp",
-          "https://i.ibb.co/wNTXNhPC/24.webp",
-          "https://i.ibb.co/JWTqxHL8/25.webp",
-          "https://i.ibb.co/Z6m0Yygc/26.webp",
-          "https://i.ibb.co/WvJngJPS/27.webp",
-          "https://i.ibb.co/99CD7h9K/28.webp",
-          "https://i.ibb.co/gLtjNwWb/29.webp",
-          "https://i.ibb.co/RV6G8dL/30.webp",
-          "https://i.ibb.co/391Ld8Rc/31.webp",
-          "https://i.ibb.co/35Qh4Hzw/32.webp",
-          "https://i.ibb.co/8LpmSs82/33.webp",
-          "https://i.ibb.co/qSjBgCN/34.webp",
-          "https://i.ibb.co/MDV3kNyw/35.webp",
-          "https://i.ibb.co/1YQyjRxT/36.webp",
-          "https://i.ibb.co/PstTvkgX/37.webp",
-          "https://i.ibb.co/RGmrbps3/38.webp",
-          "https://i.ibb.co/zhgJw8y4/39.webp",
-          "https://i.ibb.co/wZrm7RPb/40.webp",
-          "https://i.ibb.co/9HWNfJNC/41.webp",
-          "https://i.ibb.co/JDZ3sfH/42.webp",
-          "https://i.ibb.co/VYFftKLG/43.webp",
-          "https://i.ibb.co/JRXsFthf/44.webp",
-          "https://i.ibb.co/kVT4Yxt2/45.webp",
-          "https://i.ibb.co/sdVT1Gx5/46.webp",
-          "https://i.ibb.co/99RmMmFR/47.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/fGPnky8w/49.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "36": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/LzpC68RM/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/G4nYvq4P/4.webp",
-          "https://i.ibb.co/HDqkvHvp/5.webp",
-          "https://i.ibb.co/r2tq5YkB/6.webp",
-          "https://i.ibb.co/fVryGPJk/7.webp",
-          "https://i.ibb.co/HL6r6VC6/8.webp",
-          "https://i.ibb.co/VYf4MRGM/9.webp",
-          "https://i.ibb.co/mCrRTPT4/10.webp",
-          "https://i.ibb.co/ZRmGDyd3/11.webp",
-          "https://i.ibb.co/0yHL5VvL/12.webp",
-          "https://i.ibb.co/VcXvZZQ4/13.webp",
-          "https://i.ibb.co/nMnQrV2d/14.webp",
-          "https://i.ibb.co/cX3JbQ6B/15.webp",
-          "https://i.ibb.co/Rpv988Jk/16.webp",
-          "https://i.ibb.co/35qm87Tj/17.webp",
-          "https://i.ibb.co/7thTVHZW/18.webp",
-          "https://i.ibb.co/FL6qZ6NZ/19.webp",
-          "https://i.ibb.co/TBzCTn5G/20.webp",
-          "https://i.ibb.co/Q3C4HyVF/21.webp",
-          "https://i.ibb.co/xqXdz6y0/22.webp",
-          "https://i.ibb.co/n8PWv3gY/23.webp",
-          "https://i.ibb.co/99Wjg7Q3/24.webp",
-          "https://i.ibb.co/9kvZMNMB/25.webp",
-          "https://i.ibb.co/twdm5jB7/26.webp",
-          "https://i.ibb.co/NgsGdzV9/27.webp",
-          "https://i.ibb.co/LD0MCHj6/28.webp",
-          "https://i.ibb.co/TDDmV1TC/29.webp",
-          "https://i.ibb.co/PZvbTyRq/30.webp",
-          "https://i.ibb.co/RGSYDNSW/31.webp",
-          "https://i.ibb.co/G4Bq5k2B/32.webp",
-          "https://i.ibb.co/HfNn89gv/33.webp",
-          "https://i.ibb.co/4ZQCXZHy/34.webp",
-          "https://i.ibb.co/G4VJGv4q/35.webp",
-          "https://i.ibb.co/7tzhRNpN/36.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/fGPnky8w/49.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "37": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/Jbsmsqb/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/Q3Qrbbxq/4.webp",
-          "https://i.ibb.co/XfPyyw5P/5.webp",
-          "https://i.ibb.co/vxvjz0gn/6.webp",
-          "https://i.ibb.co/4nrnycQG/7.webp",
-          "https://i.ibb.co/RGzT7SMn/8.webp",
-          "https://i.ibb.co/s9WYYY2f/9.webp",
-          "https://i.ibb.co/Q367F0N6/10.webp",
-          "https://i.ibb.co/PzhT56RT/11.webp",
-          "https://i.ibb.co/FkBYTHk0/12.webp",
-          "https://i.ibb.co/99hgL16P/13.webp",
-          "https://i.ibb.co/7d5n6hDq/14.webp",
-          "https://i.ibb.co/7xb1Ph8y/15.webp",
-          "https://i.ibb.co/9kNnNj1g/16.webp",
-          "https://i.ibb.co/zWPFpGdz/17.webp",
-          "https://i.ibb.co/LzCSSmQf/18.webp",
-          "https://i.ibb.co/z3vWHRT/19.webp",
-          "https://i.ibb.co/XZXGZYfW/20.webp",
-          "https://i.ibb.co/jP5wDtBq/21.webp",
-          "https://i.ibb.co/B57s4Qn8/22.webp",
-          "https://i.ibb.co/qMj4GnfH/23.webp",
-          "https://i.ibb.co/tTTxh35k/24.webp",
-          "https://i.ibb.co/BV0QMzPQ/25.webp",
-          "https://i.ibb.co/kgJSBGnL/26.webp",
-          "https://i.ibb.co/nNyK62X5/27.webp",
-          "https://i.ibb.co/B2by1Vjh/28.webp",
-          "https://i.ibb.co/Q7nSR8k4/29.webp",
-          "https://i.ibb.co/JRk2mfrP/30.webp",
-          "https://i.ibb.co/b5QfJtq7/31.webp",
-          "https://i.ibb.co/zhXLmbNr/32.webp",
-          "https://i.ibb.co/VYB4jtPD/33.webp",
-          "https://i.ibb.co/fVQhtWLn/34.webp",
-          "https://i.ibb.co/ccWNbC0p/35.webp",
-          "https://i.ibb.co/FLdKqXQr/36.webp",
-          "https://i.ibb.co/99k8hPD0/37.webp",
-          "https://i.ibb.co/2YZnfKR7/38.webp",
-          "https://i.ibb.co/Txj6KM3C/39.webp",
-          "https://i.ibb.co/TxVKRZgC/40.webp",
-          "https://i.ibb.co/pSKsfP6/41.webp",
-          "https://i.ibb.co/4ZGcjYkh/42.webp",
-          "https://i.ibb.co/tPLrBTKc/43.webp",
-          "https://i.ibb.co/j23fQ68/44.webp",
-          "https://i.ibb.co/jk3pGxPn/45.webp",
-          "https://i.ibb.co/nqrhQxd0/46.webp",
-          "https://i.ibb.co/nNN1fGvK/47.webp",
-          "https://i.ibb.co/zTLrKNBF/48.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "38": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/YFYSjD47/2.webp",
-          "https://i.ibb.co/fz7tzWYd/3.webp",
-          "https://i.ibb.co/R4CLss13/4.webp",
-          "https://i.ibb.co/S4Djv6z2/5.webp",
-          "https://i.ibb.co/6JPQVdMw/6.webp",
-          "https://i.ibb.co/bR3fd30F/7.webp",
-          "https://i.ibb.co/wrdfNThd/8.webp",
-          "https://i.ibb.co/35H3xzdH/9.webp",
-          "https://i.ibb.co/1fyLwQq4/10.webp",
-          "https://i.ibb.co/5gPTSkDr/11.webp",
-          "https://i.ibb.co/9HkksVbg/12.webp",
-          "https://i.ibb.co/vChJgk4R/13.webp",
-          "https://i.ibb.co/gZ5mRLn6/14.webp",
-          "https://i.ibb.co/vFfw99K/15.webp",
-          "https://i.ibb.co/cSgSRLj6/16.webp",
-          "https://i.ibb.co/nqbdCr2V/17.webp",
-          "https://i.ibb.co/5WscqpKw/18.webp",
-          "https://i.ibb.co/zTQVLqpK/19.webp",
-          "https://i.ibb.co/5gWW0M20/20.webp",
-          "https://i.ibb.co/602cDbhD/21.webp",
-          "https://i.ibb.co/4RRG66Xr/22.webp",
-          "https://i.ibb.co/4RCdj80r/23.webp",
-          "https://i.ibb.co/mjLN7cH/24.webp",
-          "https://i.ibb.co/jPMSvCqT/25.webp",
-          "https://i.ibb.co/TDRgQvbS/26.webp",
-          "https://i.ibb.co/PvHtDh5F/27.webp",
-          "https://i.ibb.co/j9yn2cbW/28.webp",
-          "https://i.ibb.co/MD9kfpYp/29.webp",
-          "https://i.ibb.co/YFfPCVdn/30.webp",
-          "https://i.ibb.co/zW9WYwW3/31.webp",
-          "https://i.ibb.co/hJVhfLvN/32.webp",
-          "https://i.ibb.co/5WD5Rwdr/33.webp",
-          "https://i.ibb.co/zV80CLh6/34.webp",
-          "https://i.ibb.co/7trcwZdN/35.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/q4Sz3bJ/37.webp",
-          "https://i.ibb.co/JWG0zp5P/38.webp",
-          "https://i.ibb.co/B2nzBYPs/39.webp",
-          "https://i.ibb.co/fdsnG18P/40.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "39": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/Jwt3SS7G/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/MywXRCkt/4.webp",
-          "https://i.ibb.co/Pvfb6FP0/5.webp",
-          "https://i.ibb.co/xt2CT4mn/6.webp",
-          "https://i.ibb.co/KchvNXFF/7.webp",
-          "https://i.ibb.co/4wrzymkN/8.webp",
-          "https://i.ibb.co/Cpnk52vB/9.webp",
-          "https://i.ibb.co/B718tqT/10.webp",
-          "https://i.ibb.co/hRYb6YTh/11.webp",
-          "https://i.ibb.co/MkBMHP12/12.webp",
-          "https://i.ibb.co/RpmXM584/13.webp",
-          "https://i.ibb.co/bgVRnWtv/14.webp",
-          "https://i.ibb.co/4RP5yZYW/15.webp",
-          "https://i.ibb.co/Mymjd0jR/16.webp",
-          "https://i.ibb.co/vCMSG7j5/17.webp",
-          "https://i.ibb.co/Pv0f7rB6/18.webp",
-          "https://i.ibb.co/Zpk23YpJ/19.webp",
-          "https://i.ibb.co/5WYQ2Ryq/20.webp",
-          "https://i.ibb.co/RTLd6RvC/21.webp",
-          "https://i.ibb.co/CpcGdk5k/22.webp",
-          "https://i.ibb.co/jZTY63j4/23.webp",
-          "https://i.ibb.co/WNcHNDJ6/24.webp",
-          "https://i.ibb.co/Gvy650tV/25.webp",
-          "https://i.ibb.co/JFvPTvxw/26.webp",
-          "https://i.ibb.co/rRMyKRSp/27.webp",
-          "https://i.ibb.co/PGnd5vf0/28.webp",
-          "https://i.ibb.co/1tLG8Z2t/29.webp",
-          "https://i.ibb.co/LdFnQYYR/30.webp",
-          "https://i.ibb.co/sdB4TChk/31.webp",
-          "https://i.ibb.co/cXYW3CwW/32.webp",
-          "https://i.ibb.co/qMgdNkLF/33.webp",
-          "https://i.ibb.co/S4Qf7b0Z/34.webp",
-          "https://i.ibb.co/b5VgPC6L/35.webp",
-          "https://i.ibb.co/xqPt7jDH/36.webp",
-          "https://i.ibb.co/ds3xRMZq/37.webp",
-          "https://i.ibb.co/Vpw3hz0L/38.webp",
-          "https://i.ibb.co/VhDnDBm/39.webp",
-          "https://i.ibb.co/JwwPvgWN/40.webp",
-          "https://i.ibb.co/k6qZLQsR/41.webp",
-          "https://i.ibb.co/ks9hDTQ6/42.webp",
-          "https://i.ibb.co/JjJkJJQ0/43.webp",
-          "https://i.ibb.co/bMFGQDzP/44.webp",
-          "https://i.ibb.co/27wN94NX/45.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "40": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/YFYSjD47/2.webp",
-          "https://i.ibb.co/39VJJQGg/3.webp",
-          "https://i.ibb.co/hxkKjLNR/4.webp",
-          "https://i.ibb.co/1fvKz5g2/5.webp",
-          "https://i.ibb.co/nMh65FFY/6.webp",
-          "https://i.ibb.co/WpqbzBVw/7.webp",
-          "https://i.ibb.co/rGVBVBMF/8.webp",
-          "https://i.ibb.co/HTZp6qG6/9.webp",
-          "https://i.ibb.co/jPvbs7hT/10.webp",
-          "https://i.ibb.co/qFRSwY3M/11.webp",
-          "https://i.ibb.co/7tfWXL8Q/12.webp",
-          "https://i.ibb.co/wr2hrp9B/13.webp",
-          "https://i.ibb.co/pr4XSWh2/14.webp",
-          "https://i.ibb.co/G4G6K7Mk/15.webp",
-          "https://i.ibb.co/xSZHTvgw/16.webp",
-          "https://i.ibb.co/YBWC0vVL/17.webp",
-          "https://i.ibb.co/1fNPPGtT/18.webp",
-          "https://i.ibb.co/XrrNw2Ct/19.webp",
-          "https://i.ibb.co/5gJhyRKG/20.webp",
-          "https://i.ibb.co/1G65VzLm/21.webp",
-          "https://i.ibb.co/JRmzNHKG/22.webp",
-          "https://i.ibb.co/tT8dZTX9/23.webp",
-          "https://i.ibb.co/6c7BsggJ/24.webp",
-          "https://i.ibb.co/tMM906KP/25.webp",
-          "https://i.ibb.co/LVZrDMQ/26.webp",
-          "https://i.ibb.co/1JqnGb6H/27.webp",
-          "https://i.ibb.co/mCGb0mm7/28.webp",
-          "https://i.ibb.co/b5FSMcyp/29.webp",
-          "https://i.ibb.co/j9wNQ8mv/30.webp",
-          "https://i.ibb.co/cSY4KfJ1/31.webp",
-          "https://i.ibb.co/k2pJ5j8C/32.webp",
-          "https://i.ibb.co/zW9rrdYk/33.webp",
-          "https://i.ibb.co/XrBvZBst/34.webp",
-          "https://i.ibb.co/DHCLvFWC/35.webp",
-          "https://i.ibb.co/Tq8WWz81/36.webp",
-          "https://i.ibb.co/WNSCnRMQ/37.webp",
-          "https://i.ibb.co/zV80CLh6/34.webp",
-          "https://i.ibb.co/7trcwZdN/35.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/q4Sz3bJ/37.webp",
-          "https://i.ibb.co/JWG0zp5P/38.webp",
-          "https://i.ibb.co/fdsnG18P/40.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "41": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/0pYrFt0g/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/MkjJKmCZ/4.webp",
-          "https://i.ibb.co/DxgQ5hb/5.webp",
-          "https://i.ibb.co/Dd2rzp6/6.webp",
-          "https://i.ibb.co/XfxsvpQq/7.webp",
-          "https://i.ibb.co/qMGyFm1c/8.webp",
-          "https://i.ibb.co/fdWr2XR4/9.webp",
-          "https://i.ibb.co/G42ZvLHS/10.webp",
-          "https://i.ibb.co/CKtvmyf7/11.webp",
-          "https://i.ibb.co/V0znSH95/12.webp",
-          "https://i.ibb.co/RGzpVpGQ/13.webp",
-          "https://i.ibb.co/v6cJyNrd/14.webp",
-          "https://i.ibb.co/N64HkCKL/15.webp",
-          "https://i.ibb.co/7dT4bCTx/16.webp",
-          "https://i.ibb.co/5gC3c7z7/17.webp",
-          "https://i.ibb.co/4R97K4tr/18.webp",
-          "https://i.ibb.co/Jwwb5kTC/19.webp",
-          "https://i.ibb.co/KxbnMn60/20.webp",
-          "https://i.ibb.co/DD6NWxw9/21.webp",
-          "https://i.ibb.co/rKw8H4b8/22.webp",
-          "https://i.ibb.co/v4Yzzgj0/23.webp",
-          "https://i.ibb.co/vxn1NRp4/24.webp",
-          "https://i.ibb.co/MkGkJ1Qf/25.webp",
-          "https://i.ibb.co/PZ7H9xLm/26.webp",
-          "https://i.ibb.co/PG61bvcJ/27.webp",
-          "https://i.ibb.co/ksJN7Xdm/28.webp",
-          "https://i.ibb.co/PzGHHXhg/29.webp",
-          "https://i.ibb.co/tM2Cvx0p/30.webp",
-          "https://i.ibb.co/6czXY2bT/31.webp",
-          "https://i.ibb.co/20yTcW8g/32.webp",
-          "https://i.ibb.co/nqcv3dcW/33.webp",
-          "https://i.ibb.co/3mTmG7JK/34.webp",
-          "https://i.ibb.co/tP4CDhpY/35.webp",
-          "https://i.ibb.co/zWJtr1Wd/36.webp",
-          "https://i.ibb.co/Zr9Ry5D/37.webp",
-          "https://i.ibb.co/SwqLWmB6/38.webp",
-          "https://i.ibb.co/SDR08RTW/39.webp",
-          "https://i.ibb.co/LhzYrszX/40.webp",
-          "https://i.ibb.co/B5tGgMcQ/41.webp",
-          "https://i.ibb.co/skkzh8Y/42.webp",
-          "https://i.ibb.co/C3515CJW/43.webp",
-          "https://i.ibb.co/pBmmxngL/44.webp",
-          "https://i.ibb.co/DHf8mt33/45.webp",
-          "https://i.ibb.co/k6HfcSBd/46.webp",
-          "https://i.ibb.co/997H5XKL/47.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "42": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/s96gjMhj/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/PsWzy07J/4.webp",
-          "https://i.ibb.co/HpYByYwK/5.webp",
-          "https://i.ibb.co/nNM7LWrx/6.webp",
-          "https://i.ibb.co/4ZjR8NT9/7.webp",
-          "https://i.ibb.co/FkwK65qk/8.webp",
-          "https://i.ibb.co/7NB4jK9F/9.webp",
-          "https://i.ibb.co/0j8SVpZq/10.webp",
-          "https://i.ibb.co/XkVBzGZK/11.webp",
-          "https://i.ibb.co/prhyKTm5/12.webp",
-          "https://i.ibb.co/hFHZvyp7/13.webp",
-          "https://i.ibb.co/jZGckDpd/14.webp",
-          "https://i.ibb.co/s97DHp86/15.webp",
-          "https://i.ibb.co/kVtgsM5g/16.webp",
-          "https://i.ibb.co/35SXsWRH/17.webp",
-          "https://i.ibb.co/9mpGcJWg/18.webp",
-          "https://i.ibb.co/ZzsTn8mB/19.webp",
-          "https://i.ibb.co/NdR2QYDS/20.webp",
-          "https://i.ibb.co/tMxTxnGt/21.webp",
-          "https://i.ibb.co/yBstXRGP/22.webp",
-          "https://i.ibb.co/hwZN5Pv/23.webp",
-          "https://i.ibb.co/W4FSX0cf/24.webp",
-          "https://i.ibb.co/DfxHF60r/25.webp",
-          "https://i.ibb.co/fdyckSWR/26.webp",
-          "https://i.ibb.co/cjj86vz/27.webp",
-          "https://i.ibb.co/5hLtgc2z/28.webp",
-          "https://i.ibb.co/gLLZkQqZ/29.webp",
-          "https://i.ibb.co/pj5QgfF9/30.webp",
-          "https://i.ibb.co/qMxhtppF/31.webp",
-          "https://i.ibb.co/v9z87V1/32.webp",
-          "https://i.ibb.co/PGZNXMKz/33.webp",
-          "https://i.ibb.co/MyjJx6Zh/34.webp",
-          "https://i.ibb.co/MkHrbtmn/35.webp",
-          "https://i.ibb.co/hR4xMNnW/36.webp",
-          "https://i.ibb.co/VW6hchY0/37.webp",
-          "https://i.ibb.co/p6rCH4jF/38.webp",
-          "https://i.ibb.co/PGZFPKRN/39.webp",
-          "https://i.ibb.co/shrbGQt/40.webp",
-          "https://i.ibb.co/ycJC2Kh1/41.webp",
-          "https://i.ibb.co/whSHk5H4/42.webp",
-          "https://i.ibb.co/chMLPrVt/43.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "43": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/YTw0Fq8d/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/CqDMvzD/4.webp",
-          "https://i.ibb.co/DPthwxkb/5.webp",
-          "https://i.ibb.co/1GjzcPPj/6.webp",
-          "https://i.ibb.co/PG9JVX19/7.webp",
-          "https://i.ibb.co/jPqgkQS0/8.webp",
-          "https://i.ibb.co/GvpRvhZB/9.webp",
-          "https://i.ibb.co/HLjYKCtF/10.webp",
-          "https://i.ibb.co/ynSjVCMQ/11.webp",
-          "https://i.ibb.co/wNdNN1zD/12.webp",
-          "https://i.ibb.co/v5Qw05W/13.webp",
-          "https://i.ibb.co/BKjXPrRg/14.webp",
-          "https://i.ibb.co/gL3jVyfF/15.webp",
-          "https://i.ibb.co/9myPZ8y1/16.webp",
-          "https://i.ibb.co/23vt0WWq/17.webp",
-          "https://i.ibb.co/yFYsyN7B/18.webp",
-          "https://i.ibb.co/wNTgTmxT/19.webp",
-          "https://i.ibb.co/Q7hqCLpz/20.webp",
-          "https://i.ibb.co/ch2YvjRj/21.webp",
-          "https://i.ibb.co/ksxDXkbN/22.webp",
-          "https://i.ibb.co/JWyJtHTm/23.webp",
-          "https://i.ibb.co/HpDp5SzZ/24.webp",
-          "https://i.ibb.co/RGhW7fkH/25.webp",
-          "https://i.ibb.co/bMdSL6gb/26.webp",
-          "https://i.ibb.co/Kz7s5tw4/27.webp",
-          "https://i.ibb.co/nN69vsGm/28.webp",
-          "https://i.ibb.co/gbYkDj5y/29.webp",
-          "https://i.ibb.co/yFNzBLpL/30.webp",
-          "https://i.ibb.co/ZRFk604B/31.webp",
-          "https://i.ibb.co/BHdJhg2f/32.webp",
-          "https://i.ibb.co/kV3SQhDT/33.webp",
-          "https://i.ibb.co/xKNSMywR/34.webp",
-          "https://i.ibb.co/wFgsJpM2/35.webp",
-          "https://i.ibb.co/wrwPPRwt/36.webp",
-          "https://i.ibb.co/B2Tg01y3/37.webp",
-          "https://i.ibb.co/FkdjqxKh/38.webp",
-          "https://i.ibb.co/sJphm8hX/39.webp",
-          "https://i.ibb.co/RkXRqrkT/40.webp",
-          "https://i.ibb.co/0j5tf95h/41.webp",
-          "https://i.ibb.co/BVf8czt4/42.webp",
-          "https://i.ibb.co/DPSRq50s/43.webp",
-          "https://i.ibb.co/tMbf1kLs/44.webp",
-          "https://i.ibb.co/bM3yffPF/45.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "44": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/gZyM4k9B/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/zzxBcWh/4.webp",
-          "https://i.ibb.co/BHZGMcjk/5.webp",
-          "https://i.ibb.co/WpqNX9GP/6.webp",
-          "https://i.ibb.co/zhW0wMdW/7.webp",
-          "https://i.ibb.co/HpLy90nj/8.webp",
-          "https://i.ibb.co/PSQ66Vn/9.webp",
-          "https://i.ibb.co/d4HrjXWV/10.webp",
-          "https://i.ibb.co/9H87sWsB/11.webp",
-          "https://i.ibb.co/x8Lhryk7/12.webp",
-          "https://i.ibb.co/pjQqFV1h/13.webp",
-          "https://i.ibb.co/YBC19fCg/14.webp",
-          "https://i.ibb.co/9HrrfDXs/15.webp",
-          "https://i.ibb.co/zTHQQ51D/16.webp",
-          "https://i.ibb.co/sdjHwBh8/17.webp",
-          "https://i.ibb.co/HDn1pk8c/18.webp",
-          "https://i.ibb.co/TMMPBmz6/19.webp",
-          "https://i.ibb.co/YBSRB7mL/20.webp",
-          "https://i.ibb.co/4wzSTq68/21.webp",
-          "https://i.ibb.co/RGcNgr5X/22.webp",
-          "https://i.ibb.co/fRm51FW/23.webp",
-          "https://i.ibb.co/KpLfgks1/24.webp",
-          "https://i.ibb.co/sdB4cdj8/25.webp",
-          "https://i.ibb.co/xqNFcxXR/26.webp",
-          "https://i.ibb.co/kstMZfrL/27.webp",
-          "https://i.ibb.co/qMtDCC9y/28.webp",
-          "https://i.ibb.co/Xm5rC6y/29.webp",
-          "https://i.ibb.co/7dzxW0Gr/30.webp",
-          "https://i.ibb.co/JRVPC1fW/31.webp",
-          "https://i.ibb.co/LXfvwrDQ/32.webp",
-          "https://i.ibb.co/wF0HpPQz/33.webp",
-          "https://i.ibb.co/R42XvFCV/34.webp",
-          "https://i.ibb.co/Zz6C1V9j/35.webp",
-          "https://i.ibb.co/pjcmNV12/36.webp",
-          "https://i.ibb.co/jvHZFd07/37.webp",
-          "https://i.ibb.co/KpxpdJHp/38.webp",
-          "https://i.ibb.co/39n4ZMCV/39.webp",
-          "https://i.ibb.co/pB4dT0MR/40.webp",
-          "https://i.ibb.co/HfYWCfxz/41.webp",
-          "https://i.ibb.co/MxxcPHYx/42.webp",
-          "https://i.ibb.co/tMVjDcWJ/43.webp",
-          "https://i.ibb.co/x0JqXgw/44.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],
-        "45": [
-          "https://i.ibb.co/6cZkC9qK/1.webp",
-          "https://i.ibb.co/KcQX2RY3/2.webp",
-          "https://i.ibb.co/0yhTqMbj/3.webp",
-          "https://i.ibb.co/8DCzjxKz/4.webp",
-          "https://i.ibb.co/675vYkw7/5.webp",
-          "https://i.ibb.co/XkZFrVP6/6.webp",
-          "https://i.ibb.co/3YCnKPSY/7.webp",
-          "https://i.ibb.co/yB7NmC8c/8.webp",
-          "https://i.ibb.co/Z1f91mDk/9.webp",
-          "https://i.ibb.co/YF18340T/10.webp",
-          "https://i.ibb.co/4w8VdPrS/11.webp",
-          "https://i.ibb.co/4wWkzKD9/12.webp",
-          "https://i.ibb.co/hJ68PQ25/13.webp",
-          "https://i.ibb.co/FjghxsQ/14.webp",
-          "https://i.ibb.co/35htBc8q/15.webp",
-          "https://i.ibb.co/ycGk9mkm/16.webp",
-          "https://i.ibb.co/Z1TM49hM/17.webp",
-          "https://i.ibb.co/SwQZVWnS/18.webp",
-          "https://i.ibb.co/6cpZDPhm/19.webp",
-          "https://i.ibb.co/0RyTRc8F/20.webp",
-          "https://i.ibb.co/B5KcSywH/21.webp",
-          "https://i.ibb.co/wZzFZnYX/22.webp",
-          "https://i.ibb.co/wjNxtcH/23.webp",
-          "https://i.ibb.co/wZBmWmDZ/24.webp",
-          "https://i.ibb.co/d9hPf6M/25.webp",
-          "https://i.ibb.co/wr84wz5V/26.webp",
-          "https://i.ibb.co/VcBr70CW/27.webp",
-          "https://i.ibb.co/tdcjmZ6/28.webp",
-          "https://i.ibb.co/jvnFLx7p/29.webp",
-          "https://i.ibb.co/VpD5xDMZ/30.webp",
-          "https://i.ibb.co/MDgNP1HL/31.webp",
-          "https://i.ibb.co/8gtV7By9/32.webp",
-          "https://i.ibb.co/NgSM09Z4/33.webp",
-          "https://i.ibb.co/27KDwTgM/34.webp",
-          "https://i.ibb.co/cWkpGm5/35.webp",
-          "https://i.ibb.co/Z93FYLs/36.webp",
-          "https://i.ibb.co/ymnTMHTL/37.webp",
-          "https://i.ibb.co/4gpS821q/38.webp",
-          "https://i.ibb.co/xvqYPwp/39.webp",
-          "https://i.ibb.co/fj9Q2p9/40.webp",
-          "https://i.ibb.co/N6802bMT/41.webp",
-          "https://i.ibb.co/HJxKKJQ/42.webp",
-          "https://i.ibb.co/LDqcrtN7/43.webp",
-          "https://i.ibb.co/20b8ndmg/44.webp",
-          "https://i.ibb.co/ksbn6Gvj/45.webp",
-          "https://i.ibb.co/d4YNFW3Y/47.webp",
-          "https://i.ibb.co/qFppVcKp/47.webp",
-          "https://i.ibb.co/wZSj08LB/51.png"
-],        
+        ]
+        
+
+
       }
     },
   
@@ -2891,6 +2350,54 @@ const mangasData = {
       chapters_count: 	79,
       cover: "https://i.ibb.co/QjvHW79G/descarga.jpg",
       synopsis: "Mata monstruos, salva a tus vecinos y expande tu dominio, todo desde la comodidad de tu sofá. Cuando su ciudad se ve infestada de monstruos, Jaehyeon descubre una habilidad que lo convierte en el amo absoluto de su edificio de apartamentos. Pero su habilidad tiene una condición: no puede salir de su apartamento. Ahora debe armar a sus vecinos y guiarlos más allá de su edificio para sobrevivir en el mundo postapocalíptico en el que se encuentran.",
-      chapters: []
+      chapters: {
+        // el soberano del hogar - cap 1
+        1:[
+          "https://i.ibb.co/wZJzMr8n/2.webp",
+          "https://i.ibb.co/27P5cXDP/4.webp",
+          "https://i.ibb.co/ycCBLn17/5.webp",
+          "https://i.ibb.co/LDjjrQD8/6.webp",
+          "https://i.ibb.co/rKW5rHGg/7.webp",
+          "https://i.ibb.co/BHrTkqzL/8.webp",
+          "https://i.ibb.co/nMSL0vgS/9.webp",
+          "https://i.ibb.co/21YGZGNJ/10.webp",
+          "https://i.ibb.co/Q32B07y4/11.webp",
+          "https://i.ibb.co/svbm7cc2/12.webp",
+          "https://i.ibb.co/qF4YssqB/13.webp",
+          "https://i.ibb.co/6cKgxRFh/14.webp",
+          "https://i.ibb.co/605CKL5Z/15.webp",
+          "https://i.ibb.co/N2vHjytM/16.webp",
+          "https://i.ibb.co/hRp9NmHX/17.webp",
+          "https://i.ibb.co/mVRq26Dc/18.webp",
+          "https://i.ibb.co/Sw2QhrPY/19.webp",
+          "https://i.ibb.co/NgrQwR0Q/20.webp",
+          "https://i.ibb.co/m5zKLywW/21.webp",
+          "https://i.ibb.co/jZb1rX4q/22.webp",
+          "https://i.ibb.co/23ZhG4b7/23.webp",
+          "https://i.ibb.co/4Rb1dYjB/24.webp",
+          "https://i.ibb.co/cXcZcV1J/25.webp",
+          "https://i.ibb.co/B2qJ14Hz/26.webp",
+          "https://i.ibb.co/7J0sGh4Z/27.webp",
+          "https://i.ibb.co/bMd86Lr0/28.webp",
+          "https://i.ibb.co/DHSt44XD/29.webp",
+          "https://i.ibb.co/2789DZ3v/30.webp",
+          "https://i.ibb.co/dsJqWmD3/31.webp",
+          "https://i.ibb.co/4nh9bJNm/32.webp",
+          "https://i.ibb.co/LdL9RBBk/33.webp",
+          "https://i.ibb.co/F4VvVFqJ/34.webp",
+          "https://i.ibb.co/C3KdQSZn/35.webp",
+          "https://i.ibb.co/6R7d6vcB/36.webp",
+          "https://i.ibb.co/fYB6c0Z3/37.webp",
+          "https://i.ibb.co/Rp19yrf3/38.webp",
+          "https://i.ibb.co/wr64V2xp/39.webp",
+          "https://i.ibb.co/wZHcvKBb/40.webp",
+          "https://i.ibb.co/6cTMKpLr/41.webp",
+          "https://i.ibb.co/1GvM2Y0C/42.webp",
+          "https://i.ibb.co/RGk3xQDV/43.webp",
+          "https://i.ibb.co/FRNwsDL/44.webp",
+          "https://i.ibb.co/Y7bfrSLY/45.webp",
+          "https://i.ibb.co/fdn17TPZ/46.webp"
+        ]
+      }
     }]
 };
