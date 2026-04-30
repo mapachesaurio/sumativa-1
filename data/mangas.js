@@ -11,7 +11,7 @@ const mangasData = {
       chapters: {
         // el mago pastor - cap 1
         1: [
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/gLY1mWKp/3.webp",
           "https://i.ibb.co/tTj4LYDZ/4.webp",
           "https://i.ibb.co/SH16g84/5.webp",
@@ -63,7 +63,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 2
         2: [
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/sdDshDhj/3.webp",
           "https://i.ibb.co/wF8LxcB7/4.webp",
           "https://i.ibb.co/GSQZZgB/5.webp",
@@ -110,7 +110,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 3
         3:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/4ZzrBvph/3.webp",
           "https://i.ibb.co/vxhpkxw7/4.webp",
           "https://i.ibb.co/RGhJLpb2/5.webp",
@@ -164,7 +164,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 4
         4:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/fRsLtvV/3.webp",
           "https://i.ibb.co/VchbB1WD/6.webp",
           "https://i.ibb.co/SDvBxD4X/7.webp",
@@ -199,7 +199,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 5
         5:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/PZd5cQ8J/3.webp",
           "https://i.ibb.co/Xr07Zrqv/4.webp",
           "https://i.ibb.co/JbQHJhc/5.webp",
@@ -246,7 +246,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 6
         6:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/cSsY2NKV/3.webp",
           "https://i.ibb.co/b5dMjtHD/4.webp",
           "https://i.ibb.co/8gVw4M3c/6.webp",
@@ -284,7 +284,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 7
         7:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/B2qBsjz3/3.webp",
           "https://i.ibb.co/KxY2Xgvp/4.webp",
           "https://i.ibb.co/yFsxfbHg/5.webp",
@@ -329,7 +329,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 8
         8:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/4wXskFY7/3.webp",
           "https://i.ibb.co/tpqq5tsy/4.webp",
           "https://i.ibb.co/hJkz2psc/5.webp",
@@ -381,7 +381,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 9
         9:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/fYvg0qp7/4.webp",
           "https://i.ibb.co/My14yZKM/5.webp",
           "https://i.ibb.co/sDgQW3W/6.webp",
@@ -441,7 +441,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 10
         10:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/9mhWzRpx/4.webp",
           "https://i.ibb.co/vrRSFXV/5.webp",
           "https://i.ibb.co/YFf7Fqsh/6.webp",
@@ -501,7 +501,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 11
         11:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/ycHPJjy2/3.webp",
           "https://i.ibb.co/GfV2K9fC/4.webp",
           "https://i.ibb.co/8nHHRWMm/5.webp",
@@ -558,7 +558,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 12
         12:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/hx8nYPWj/4.webp",
           "https://i.ibb.co/TDP68m3V/5.webp",
           "https://i.ibb.co/1tSrqfLq/6.webp",
@@ -622,7 +622,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 13
         13:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/zTkHPxzC/4.webp",
           "https://i.ibb.co/JWLZM822/5.webp",
           "https://i.ibb.co/M5hwFTkC/6.webp",
@@ -683,7 +683,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 14
         14:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/ddWrMCF/4.webp",
           "https://i.ibb.co/39rCgDTx/5.webp",
           "https://i.ibb.co/HpVwv7QF/6.webp",
@@ -750,7 +750,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 15
         15:[
-          "https://i.ibb.co/VpYNV6Yb/3.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/chzgZp9f/3.webp",
           "https://i.ibb.co/rGdbpnKY/4.webp",
           "https://i.ibb.co/0p3mzj47/5.webp",
@@ -827,7 +827,7 @@ const mangasData = {
         ],
         // el mago pastor - cap 16
         16:[
-          "https://i.ibb.co/C5MYT0q3/2.webp",
+          "https://i.ibb.co/gM12dbww/capitulo.png",
           "https://i.ibb.co/6RMZzpYL/3.webp",
           "https://i.ibb.co/qMgGB1dT/4.webp",
           "https://i.ibb.co/RptcPsDC/5.webp",
