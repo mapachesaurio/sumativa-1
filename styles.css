@@ -405,11 +405,26 @@ header button:hover { background: #f43f5e; }
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   margin-top: 10px;
 }
+.detail-container { 
+  display:flex; 
+  gap:30px; 
+  align-items:flex-start; 
+}
+@media (max-width: 768px) {
+  .detail-container {
+    display: block;
+    gap: 15px;
+  }
 
-.detail-container {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+  .cover,
+  .info {
+    width: 100%; /* ocupan todo el ancho disponible */
+  }
+
+  #chapters {
+    width: 100%;
+    box-sizing: border-box; /* el padding no desborda */
+  }
 }
 
 .cover {
@@ -523,13 +538,13 @@ header button:hover { background: #f43f5e; }
 #readerHeader.hidden { top: -300px !important; }
 
 .reader-top-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 12px 24px;
-  border-bottom: 1px solid #334155;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    border-bottom: 1px solid #334155;
 }
 
 .reader-controls {
