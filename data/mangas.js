@@ -2347,7 +2347,7 @@ const mangasData = {
       title: "el soberano del hogar",
       genre: "acción, fantasía, supervivencia, apocalíptico.",
       rating: 4.7,
-      chapters_count: 10,
+      chapters_count: 15,
       cover: "https://i.ibb.co/QjvHW79G/descarga.jpg",
       synopsis: "Mata monstruos, salva a tus vecinos y expande tu dominio, todo desde la comodidad de tu sofá. Cuando su ciudad se ve infestada de monstruos, Jaehyeon descubre una habilidad que lo convierte en el amo absoluto de su edificio de apartamentos. Pero su habilidad tiene una condición: no puede salir de su apartamento. Ahora debe armar a sus vecinos y guiarlos más allá de su edificio para sobrevivir en el mundo postapocalíptico en el que se encuentran.",
       chapters: {
